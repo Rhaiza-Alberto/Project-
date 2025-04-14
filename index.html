@@ -50,10 +50,26 @@
                         <span class="btn-icon">👤</span>
                         <span>Login</span>
                     </a>
-                    <a href="register.html" class="btn btn-primary">
-                        <span class="btn-icon">✚</span>
-                        <span>Register</span>
-                    </a>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle">
+                            <span class="btn-icon">✚</span>
+                            <span>Register</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="register.html?type=patient" class="dropdown-item">
+                                <span class="dropdown-icon">👨‍⚕️</span>
+                                Patient
+                            </a>
+                            <a href="register.html?type=admin" class="dropdown-item">
+                                <span class="dropdown-icon">👔</span>
+                                Admin
+                            </a>
+                            <a href="register.html?type=hospital" class="dropdown-item">
+                                <span class="dropdown-icon">🏥</span>
+                                Hospital
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
