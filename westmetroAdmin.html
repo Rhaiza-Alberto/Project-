@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Metro Medical Center | Admin Dashboard</title>
+    <link rel="stylesheet" href="stylesWMAdmin.css">
+    <style>
+:root {
+    --hospital-primary: #bb1d1d;
+    --hospital-primary-light: #da9414;
+    --hospital-accent: #fd4400;
+    --hospital-primary-pale: #000102;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --off-white: #f8f9fa;
+    --white: #ffffff;
+    --text-light: #6c757d;
+    --primary-pale: #f1f1f1;
+}
+</style>
+
+</head>
+<body>
+    <header class="hospital-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-inner">
+                            <span style="color: var(--hospital-accent)">W</span>
+                            <span style="color: rgb(230, 230, 230)">M</span>
+                        </div>
+                    </div>
+                    <span class="logo-text">West Metro Medical Center</span>
+                    <span class="logo-text-admin">ADMIN</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#services" class="nav-button">Services</a></li>
+                        <li><a href="#doctors" class="nav-button">Doctors</a></li>
+                        <li><a href="#location" class="nav-button">Location</a></li>
+                        <li><a href="#contact" class="nav-button">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#schedule" class="btn btn-accent">Schedule Visit</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hospital-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>West Metro Medical Center</h1>
+                <p class="subtitle">Premium healthcare with compassionate service since 1995</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab('services-tab')">Manage Services</button>
+            <button class="tab-button" onclick="openTab('doctors-tab')">Manage Doctors</button>
+        </div>
+        
+        <div id="services-tab" class="admin-tab active">
+            <section id="services" class="hospital-services">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Our Specialized Services</h2>
+                        <p class="section-subtitle">Manage medical services</p>
+                    </div>
+
+                    <div class="service-cards" id="services-container">
+                    </div>
+
+                    <div class="admin-controls">
+                        <button class="btn btn-accent" onclick="openAddServiceModal()">Add New Service</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div id="doctors-tab" class="admin-tab">
+            <section id="doctors" class="doctors-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Our Medical Specialists</h2>
+                        <p class="section-subtitle">Manage medical staff</p>
+                    </div>
+                    
+                    <div class="doctor-grid" id="doctors-container">
+                    </div>
+
+                    <div class="admin-controls">
+                        <button class="btn btn-accent" onclick="openAddDoctorModal()">Add New Doctor</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="addServiceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Service</h3>
+                <button class="close-modal" onclick="closeModal('addServiceModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addServiceForm" class="service-form">
+                    <label for="service-name">Service Name:</label>
+                    <input type="text" id="service-name" required>
+                    
+                    <label for="service-icon">Icon (emoji):</label>
+                    <input type="text" id="service-icon" required>
+                    
+                    <label for="service-details">Service Details (one per line):</label>
+                    <textarea id="service-details" class="service-details-input" required></textarea>
+                    
+                    <button type="submit" class="submit-btn">Add Service</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="editServiceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Service</h3>
+                <button class="close-modal" onclick="closeModal('editServiceModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editServiceForm" class="service-form">
+                    <input type="hidden" id="edit-service-id">
+                    <label for="edit-service-name">Service Name:</label>
+                    <input type="text" id="edit-service-name" required>
+                    
+                    <label for="edit-service-icon">Icon (emoji):</label>
+                    <input type="text" id="edit-service-icon" required>
+                    
+                    <label for="edit-service-details">Service Details (one per line):</label>
+                    <textarea id="edit-service-details" class="service-details-input" required></textarea>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('editServiceModal')">Cancel</button>
+                        <button type="submit" class="submit-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteServiceModal" class="modal confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Deletion</h3>
+                <button class="close-modal" onclick="closeModal('deleteServiceModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this service? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal('deleteServiceModal')">Cancel</button>
+                <button type="button" class="submit-btn" id="confirm-service-delete">Delete Service</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Doctor</h3>
+                <button class="close-modal" onclick="closeModal('addDoctorModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addDoctorForm" class="service-form">
+                    <label for="doctor-name">Doctor's Name:</label>
+                    <input type="text" id="doctor-name" required>
+                    
+                    <label for="doctor-specialty">Specialty:</label>
+                    <input type="text" id="doctor-specialty" required>
+                    
+                    <label for="doctor-bio">Biography:</label>
+                    <input type="text" id="doctor-bio" required>
+                    
+                    <label for="doctor-image">Image URL:</label>
+                    <input type="text" id="doctor-image" required>
+                    
+                    <button type="submit" class="submit-btn">Add Doctor</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="editDoctorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Doctor</h3>
+                <button class="close-modal" onclick="closeModal('editDoctorModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editDoctorForm" class="service-form">
+                    <input type="hidden" id="edit-doctor-id">
+                    <label for="edit-doctor-name">Doctor's Name:</label>
+                    <input type="text" id="edit-doctor-name" required>
+                    
+                    <label for="edit-doctor-specialty">Specialty:</label>
+                    <input type="text" id="edit-doctor-specialty" required>
+                    
+                    <label for="edit-doctor-bio">Biography:</label>
+                    <input type="text" id="edit-doctor-bio" required>
+                    
+                    <label for="edit-doctor-image">Image URL:</label>
+                    <input type="text" id="edit-doctor-image" required>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('editDoctorModal')">Cancel</button>
+                        <button type="submit" class="submit-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteDoctorModal" class="modal confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Deletion</h3>
+                <button class="close-modal" onclick="closeModal('deleteDoctorModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this doctor? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal('deleteDoctorModal')">Cancel</button>
+                <button type="button" class="submit-btn" id="confirm-doctor-delete">Delete Doctor</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="hospital-cta">
+        <div class="container">
+            <h2>Ready to schedule your visit?</h2>
+            <a href="#schedule" class="btn btn-accent btn-large">Book Appointment Now</a>
+        </div>
+    </section>
+
+    <script src="scriptWMAdmin.js"></script>
+
+</body>
+</html>
