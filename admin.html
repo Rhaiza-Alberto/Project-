@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <img src="img/logo.jpg" alt="Admin Logo" class="logo" />
+    <h2>Admin Panel</h2>
+    <a href="#" class="active" onclick="showSection('approvals')">Hospital Approvals</a>
+    <a href="#" onclick="showSection('users')">User Management</a>
+    <a href="#" onclick="showSection('reports')">Reports</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">Admin Control Center</div>
+
+    <div id="approvals" class="section">
+      <h3>Zamboanga City Hospital Registration Approvals</h3>
+    
+      <label for="filter">Filter by Status:</label>
+      <select id="filter" onchange="filterStatus()">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    
+      <table id="hospitalTable">
+        <thead>
+          <tr>
+            <th>Hospital Name</th>
+            <th>Documents</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-status="pending">
+            <td>Zamboanga City Medical Center</td>
+            <td>
+              <a href="#">DOH Cert</a> |
+              <a href="#">Business Permit</a> |
+              <a href="#">Logo</a>
+            </td>
+            <td class="status status-pending">Pending</td>
+            <td>
+              <button onclick="updateRegistrationStatus(this, 'approved')">Approve</button>
+              <button onclick="updateRegistrationStatus(this, 'rejected')">Reject</button>
+              <button onclick="deleteRegistration(this)">Delete</button>
+            </td>
+          </tr>
+          <tr data-status="approved">
+            <td>Brent Hospital and Colleges Inc.</td>
+            <td>
+              <a href="#">DOH Cert</a> |
+              <a href="#">Business Permit</a> |
+              <a href="#">Logo</a>
+            </td>
+            <td class="status status-approved">Approved</td>
+            <td>
+              <button onclick="updateRegistrationStatus(this, 'approved')">Approve</button>
+              <button onclick="updateRegistrationStatus(this, 'rejected')">Reject</button>
+              <button onclick="deleteRegistration(this)">Delete</button>
+            </td>
+          </tr>
+          <tr data-status="rejected">
+            <td>Ciudad Medical Zamboanga</td>
+            <td>
+              <a href="#">DOH Cert</a> |
+              <a href="#">Business Permit</a> |
+              <a href="#">Logo</a>
+            </td>
+            <td class="status status-rejected">Rejected</td>
+            <td>
+              <button onclick="updateRegistrationStatus(this, 'approved')">Approve</button>
+              <button onclick="updateRegistrationStatus(this, 'rejected')">Reject</button>
+              <button onclick="deleteRegistration(this)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="users" class="section" style="display: none;">
+      <h3>User Management</h3>
+      <input type="text" id="userSearch" placeholder="Search by name or email..." onkeyup="searchUsers()" />
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-status="active">
+            <td>Emir Marcelino</td>
+            <td>emir@gmail.com</td>
+            <td class="status status-active">Active</td>
+            <td>
+              <button onclick="viewUser(this)">View</button>
+              <button onclick="toggleUserStatus(this)">Deactivate</button>
+              <button onclick="deleteUser(this)">Delete</button>
+            </td>
+          </tr>
+          <tr data-status="inactive">
+            <td>Rhaiza Alberto</td>
+            <td>albertorhaiza@gmail.com</td>
+            <td class="status status-inactive">Inactive</td>
+            <td>
+              <button onclick="viewUser(this)">View</button>
+              <button onclick="toggleUserStatus(this)">Activate</button>
+              <button onclick="deleteUser(this)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="reports" class="section" style="display: none;">
+      <h3>System Reports & Analytics</h3>
+      <div class="report-cards">
+        <div class="card">
+          <h4>Total Users</h4>
+          <p id="totalUsers">45</p>
+        </div>
+        <div class="card">
+          <h4>Approved Hospitals</h4>
+          <p id="approvedHospitals">12</p>
+        </div>
+        <div class="card">
+          <h4>Reported Issues</h4>
+          <p id="reportedIssues">3</p>
+        </div>
+      </div>
+
+      <h4>Recent Activities</h4>
+      <table id="activityTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Activity</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-04-06</td>
+            <td>Approved "Ciudad Medical Zamboanga"</td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <td>2025-04-06</td>
+            <td>Rejected "Zamboanga City Medical Center"</td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <td>2025-04-05</td>
+            <td>User "floralyn@gmail.com" registered</td>
+            <td>System</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/admin.js" defer></script>
+</body>
+</html>
