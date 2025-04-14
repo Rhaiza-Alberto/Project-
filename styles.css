@@ -776,34 +776,124 @@ p {
   font-size: 1.1rem;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.dropdown-toggle::after {
+  content: "▼";
+  font-size: 0.6rem;
+  margin-left: 5px;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  min-width: 220px;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  padding: 10px 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: var(--transition);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown:hover .dropdown-toggle::after,
+.dropdown:focus-within .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: var(--text);
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-pale);
+  color: var(--primary-dark);
+}
+
 @media (max-width: 992px) {
   .header-wrapper {
       flex-wrap: wrap;
+      gap: 15px;
   }
   
-  .main-nav, .auth-buttons {
+  .auth-buttons {
+      order: 3;
+      width: 100%;
       display: none;
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      margin-top: 15px;
+  }
+  
+  .header-wrapper.mobile-menu-open .auth-buttons {
+      display: flex;
+  }
+  
+  .dropdown {
+      width: 100%;
+  }
+  
+  .dropdown-toggle {
+      width: 100%;
+      justify-content: center;
+  }
+  
+  .dropdown-menu {
+      position: static;
+      box-shadow: none;
+      display: none;
+      width: 100%;
+      background: transparent;
+      padding: 10px 0 0 20px;
+  }
+  
+  .dropdown.active .dropdown-menu {
+      display: block;
+  }
+  
+  .dropdown-item {
+      padding: 8px 15px;
   }
   
   .mobile-menu-btn {
-      display: flex;
+      order: 2;
+      margin-left: auto;
   }
   
-  .hero h1 {
-      font-size: 2.5rem;
-  }
-  
-  .section {
-      padding: 60px 0;
-  }
-
-  .hospital-header .main-nav,
-  .hospital-header .auth-buttons {
-      display: none;
-  }
-  
-  .hospital-header .mobile-menu-btn {
-      display: flex;
+  .logo {
+      order: 1;
   }
 }
 
