@@ -45,5 +45,5 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
 
     localStorage.setItem('userData', JSON.stringify(userData));
 
-    window.location.href = "login.html";
+    window.location.href = "Register/patient.html";
 });
