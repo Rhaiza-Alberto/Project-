@@ -7,7 +7,7 @@ body {
   }
   
   .container {
-    max-width: 700p
+    max-width: 700px;
     margin: 60px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.95);
