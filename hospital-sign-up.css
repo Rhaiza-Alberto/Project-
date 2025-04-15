@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('../img/background.jpg') no-repeat center center fixed;
+    background: url('images/Backgrouddddd.jpg') no-repeat center center fixed;
     background-size: cover;
   }
   
   .container {
-    max-width: 700px;
+    max-width: 700p
     margin: 60px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.95);
