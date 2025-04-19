@@ -45,5 +45,5 @@ document.getElementById('hospitalSignUpForm').addEventListener('submit', functio
     }
 
     alert("Hospital registration submitted successfully!");
-    window.location.href = "login.html";
+    window.location.href = "pages/call-to-action/login.html";
 });

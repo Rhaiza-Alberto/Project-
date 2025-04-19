@@ -8,7 +8,7 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   height: 100vh;
-  background: url('images/Backgrouddddd.jpg') no-repeat center center fixed;
+  background: url('../../assets/images/Backgrouddddd.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 

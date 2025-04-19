@@ -125,7 +125,7 @@ function showSection(sectionId) {
 }
 
 function logout() {
-  window.location.href = "login.html";
+  window.location.href = "pages/call-to-action/login.html";
 }
 
 function exportActivity() {
