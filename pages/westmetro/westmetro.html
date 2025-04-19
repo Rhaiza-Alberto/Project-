@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Metro Medical Center | HealthConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+:root {
+    --hospital-primary: #0d3b66;
+    --hospital-primary-light: #4a9fe0;
+    --hospital-accent: #ff7f50;
+    --hospital-primary-pale: #e6f2fa;
+}
+    </style>
+</head>
+<body>
+    <header class="hospital-header" style="background-color: var(--hospital-primary);">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-inner">
+                            <span style="color: var(--hospital-accent)">W</span>
+                            <span style="color: white">M</span>
+                        </div>
+                    </div>
+                    <span class="logo-text">West Metro Medical Center</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#services" class="nav-button">Services</a></li>
+                        <li><a href="#doctors" class="nav-button">Doctors</a></li>
+                        <li><a href="#location" class="nav-button">Location</a></li>
+                        <li><a href="#contact" class="nav-button">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#schedule" class="btn btn-accent">Schedule Visit</a>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hospital-hero" style="background-image: linear-gradient(rgba(13, 59, 102, 0.8), rgba(13, 59, 102, 0.8)), url('images/westmetro-banner.jpg');">
+        <div class="container">
+            <div class="hero-content">
+                <h1>West Metro Medical Center</h1>
+                <p class="subtitle">Premium healthcare with compassionate service since 1995</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="hospital-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Specialized Services</h2>
+                <p class="section-subtitle">12 advanced medical departments</p>
+            </div>
+
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🏥</div>
+                        <h3>Emergency Care</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>24/7 emergency department</li>
+                        <li>Board-certified ER physicians</li>
+                        <li>Level III trauma center</li>
+                        <li>Average wait time: <15 minutes</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Emergency Visit</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">❤️</div>
+                        <h3>Cardiology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Cardiac catheterization</li>
+                        <li>Echocardiography</li>
+                        <li>Stress testing</li>
+                        <li>Pacemaker implants</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👶</div>
+                        <h3>Pediatrics</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Well-child visits</li>
+                        <li>Vaccinations</li>
+                        <li>Asthma management</li>
+                        <li>Nutrition counseling</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Visit</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🧠</div>
+                        <h3>Neurology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>EEG testing</li>
+                        <li>Stroke treatment</li>
+                        <li>Migraine management</li>
+                        <li>Epilepsy care</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🦴</div>
+                        <h3>Orthopedics</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Joint replacement</li>
+                        <li>Sports medicine</li>
+                        <li>Fracture care</li>
+                        <li>Arthroscopic surgery</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Visit</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🦋</div>
+                        <h3>Oncology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Chemotherapy</li>
+                        <li>Radiation therapy</li>
+                        <li>Cancer screening</li>
+                        <li>Supportive care</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🧫</div>
+                        <h3>Gastroenterology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Colonoscopy</li>
+                        <li>Endoscopy</li>
+                        <li>IBD treatment</li>
+                        <li>Liver disease management</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Procedure</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🫁</div>
+                        <h3>Pulmonology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Asthma treatment</li>
+                        <li>COPD management</li>
+                        <li>Sleep studies</li>
+                        <li>Bronchoscopy</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">📷</div>
+                        <h3>Radiology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>MRI scans</li>
+                        <li>CT scans</li>
+                        <li>X-rays</li>
+                        <li>Ultrasound</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Imaging</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🔪</div>
+                        <h3>General Surgery</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Appendectomy</li>
+                        <li>Gallbladder removal</li>
+                        <li>Hernia repair</li>
+                        <li>Minimally invasive procedures</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🩸</div>
+                        <h3>Nephrology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Dialysis services</li>
+                        <li>Kidney transplant</li>
+                        <li>Hypertension care</li>
+                        <li>Electrolyte management</li>
+                    </ul>
+                    <a href="#doctors" class="btn btn-primary">Meet Specialists</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🦵</div>
+                        <h3>Rheumatology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Arthritis treatment</li>
+                        <li>Lupus management</li>
+                        <li>Joint injections</li>
+                        <li>Autoimmune care</li>
+                    </ul>
+                    <a href="#doctors" class="btn btn-primary">View Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors" class="doctors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Medical Specialists</h2>
+                <p class="section-subtitle">Board-certified physicians</p>
+            </div>
+            
+            <div class="doctor-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor1.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Elena Vasquez</h3>
+                        <p class="doctor-specialty">Emergency Medicine</p>
+                        <p class="doctor-bio">Trauma specialist with 12 years experience</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor2.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p class="doctor-specialty">Cardiology</p>
+                        <p class="doctor-bio">Interventional cardiologist</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor3.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="doctor-specialty">Oncology</p>
+                        <p class="doctor-bio">Breast cancer specialist</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor4.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Thomas Wright</h3>
+                        <p class="doctor-specialty">Pulmonology</p>
+                        <p class="doctor-bio">Sleep disorder expert</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hospital-cta" style="background-color: var(--hospital-primary-light);">
+        <div class="container">
+            <h2>Ready to schedule your visit?</h2>
+            <a href="#schedule" class="btn btn-accent btn-large">Book Appointment Now</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

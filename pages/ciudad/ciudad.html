@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciudad Medical Zamboanga | HealthConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+:root {
+    --hospital-primary: #2e7d32;
+    --hospital-primary-light: #81c784;
+    --hospital-accent: #ffab40;
+    --hospital-primary-pale: #e8f5e9;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--hospital-primary) 0%, var(--hospital-primary-light) 100%);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.logo-inner {
+    display: flex;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+    </style>
+</head>
+<body>
+    <header class="hospital-header" style="background-color: var(--hospital-primary);">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-inner">
+                            <span style="color: var(--hospital-accent)">C</span>
+                            <span style="color: white">M</span>
+                        </div>
+                    </div>
+                    <span class="logo-text">Ciudad Medical Zamboanga</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#services" class="nav-button">Services</a></li>
+                        <li><a href="#doctors" class="nav-button">Doctors</a></li>
+                        <li><a href="#location" class="nav-button">Location</a></li>
+                        <li><a href="#contact" class="nav-button">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#schedule" class="btn btn-accent">Schedule Visit</a>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hospital-hero" style="background-image: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), url('images/ciudad-banner.jpg');">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ciudad Medical Zamboanga</h1>
+                <p class="subtitle">Your trusted healthcare partner since 1982</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="hospital-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Specialized Services</h2>
+                <p class="section-subtitle">12 comprehensive medical departments</p>
+            </div>
+
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🦷</div>
+                        <h3>Dental Care</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Teeth cleaning & whitening</li>
+                        <li>Dental implants</li>
+                        <li>Orthodontics</li>
+                        <li>Pediatric dentistry</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Dental Appointment</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🔬</div>
+                        <h3>Laboratory Services</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Blood tests</li>
+                        <li>Urinalysis</li>
+                        <li>Microbiology</li>
+                        <li>Pathology</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Lab Test</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">💊</div>
+                        <h3>Pharmacy</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Prescription fulfillment</li>
+                        <li>OTC medications</li>
+                        <li>Compounding services</li>
+                        <li>Free delivery within city</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Order Medications</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👶</div>
+                        <h3>Pediatrics</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Well-child checkups</li>
+                        <li>Vaccinations</li>
+                        <li>Asthma management</li>
+                        <li>Nutrition counseling</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Visit</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">❤️</div>
+                        <h3>Cardiology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Echocardiography</li>
+                        <li>Stress testing</li>
+                        <li>Holter monitoring</li>
+                        <li>Cardiac rehabilitation</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🧴</div>
+                        <h3>Dermatology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Acne treatment</li>
+                        <li>Skin cancer screening</li>
+                        <li>Psoriasis management</li>
+                        <li>Cosmetic procedures</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Appointment</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👁️</div>
+                        <h3>Ophthalmology</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Eye exams</li>
+                        <li>Cataract screening</li>
+                        <li>Glaucoma treatment</li>
+                        <li>LASIK consultations</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Exam</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🦿</div>
+                        <h3>Physical Therapy</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Post-surgical rehab</li>
+                        <li>Sports injury recovery</li>
+                        <li>Chronic pain management</li>
+                        <li>Stroke rehabilitation</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Session</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🤰</div>
+                        <h3>Maternity Care</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Prenatal checkups</li>
+                        <li>Ultrasound services</li>
+                        <li>Childbirth classes</li>
+                        <li>Postpartum care</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Schedule Visit</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👂</div>
+                        <h3>ENT Services</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Hearing tests</li>
+                        <li>Tonsillectomy</li>
+                        <li>Sinus treatment</li>
+                        <li>Allergy management</li>
+                    </ul>
+                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🩺</div>
+                        <h3>Internal Medicine</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Chronic disease management</li>
+                        <li>Health screenings</li>
+                        <li>Preventive care</li>
+                        <li>Geriatric consultations</li>
+                    </ul>
+                    <a href="#doctors" class="btn btn-primary">Meet Our Internists</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🧠</div>
+                        <h3>Mental Health</h3>
+                    </div>
+                    <ul class="service-details">
+                        <li>Psychiatric evaluations</li>
+                        <li>Anxiety/depression treatment</li>
+                        <li>Counseling services</li>
+                        <li>Stress management</li>
+                    </ul>
+                    <a href="#doctors" class="btn btn-primary">View Specialists</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors" class="doctors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Medical Specialists</h2>
+                <p class="section-subtitle">Board-certified physicians</p>
+            </div>
+            
+            <div class="doctor-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor5.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Maria Santos</h3>
+                        <p class="doctor-specialty">Cardiology</p>
+                        <p class="doctor-bio">15+ years experience in interventional cardiology</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor6.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. James Lim</h3>
+                        <p class="doctor-specialty">Pediatrics</p>
+                        <p class="doctor-bio">Specializes in childhood immunology</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor7.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sofia Reyes</h3>
+                        <p class="doctor-specialty">Dermatology</p>
+                        <p class="doctor-bio">Cosmetic dermatology specialist</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('images/doctor8.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Roberto Cruz</h3>
+                        <p class="doctor-specialty">ENT</p>
+                        <p class="doctor-bio">Hearing restoration expert</p>
+                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hospital-cta" style="background-color: var(--hospital-primary-light);">
+        <div class="container">
+            <h2>Ready to schedule your visit?</h2>
+            <a href="#schedule" class="btn btn-accent btn-large">Book Appointment Now</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

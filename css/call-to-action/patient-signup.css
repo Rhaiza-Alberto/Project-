@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/Backgrouddddd.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  .name-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .name-field {
+    flex: 1;
+    min-width: 100px;
+  }
+  
+  
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px auto;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      margin: 30px 10px;
+      padding: 15px;
+    }
+  
+    .form-row {
+      flex-direction: column;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
