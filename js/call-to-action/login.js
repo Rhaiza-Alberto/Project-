@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (userType === 'hospital') {
                 window.location.href = "hospital-dashboard.html";
             } else if (userType === 'admin') {
-                window.location.href = "pages/admin/admin.html";
+                window.location.href = "../admin/admin.html";
             }
         } else {
             alert("Invalid credentials. Please try again.");
