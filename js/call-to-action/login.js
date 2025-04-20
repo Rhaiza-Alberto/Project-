@@ -38,12 +38,12 @@ $(document).ready(function () {
         }
 
         if (userType === 'patient') {
-            window.location.href = "pages/patient/profile.html";
+            window.location.href = "../patient/profile.html";
         } else if (users[userType] && users[userType].email === email) {
             if (userType === 'hospital') {
-                window.location.href = "pages/hospital/hospital dashboard.html";
+                window.location.href = "../hospital/hospital dashboard.html";
             } else if (userType === 'admin') {
-                window.location.href = "pages/admin/admin.html";
+                window.location.href = "../admin/admin.html";
             }
         } else {
             alert("Invalid credentials. Please try again.");
