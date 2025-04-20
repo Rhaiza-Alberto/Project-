@@ -1,147 +1,146 @@
 /* Reset and Base Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html {
-    font-size: 16px;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  /* Header */
-  .header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  /* Container */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.nav-btn,
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  flex: 1 1 120px;
+  max-width: 200px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover,
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Card */
+.card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Profile Card */
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2.name {
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+/* Form Elements */
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
   .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
   }
-  
-  /* Welcome Text */
-  .welcome-text {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  /* Button Group */
+
   .button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    gap: 0.8rem;
   }
-  
+
   .nav-btn,
   .edit-btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    flex: 1 1 120px;
-    max-width: 200px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-btn:hover,
-  .edit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Card */
-  .card {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-  }
-  
-  /* Profile Card */
-  .profile-card {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    align-items: flex-start;
-  }
-  
-  .profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #007bff;
-  }
-  
-  .info {
-    flex: 1;
-  }
-  
-  .info h2.name {
-    color: #007bff;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Form Elements */
-  select,
-  textarea {
     width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+    max-width: none;
   }
-  
-  textarea {
-    resize: vertical;
-    min-height: 100px;
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .container {
-      padding: 1rem;
-    }
-  
-    .button-group {
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-  
-    .nav-btn,
-    .edit-btn {
-      width: 100%;
-      max-width: none;
-    }
-  
-    .profile-card {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .profile-img {
-      margin-bottom: 1rem;
-    }
+
+  .profile-img {
+    margin-bottom: 1rem;
   }
-  
+}
