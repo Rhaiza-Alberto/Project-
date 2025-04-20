@@ -192,7 +192,7 @@ function renderServices() {
 // Create a service card element
 function createServiceCard(service) {
     const card = document.createElement('div');
-    card.className = 'service-card';
+    card.className = `service-card ${service.active ? '' : 'inactive'}`;
     card.dataset.id = service.id;
     
     const detailsList = service.details.map(detail => `<li>${detail}</li>`).join('');
@@ -201,11 +201,15 @@ function createServiceCard(service) {
         <div class="service-header">
             <div class="service-icon">${service.icon}</div>
             <h3>${service.name}</h3>
+            <span class="status-badge">${service.active ? 'Active' : 'Inactive'}</span>
         </div>
         <ul class="service-details">
             ${detailsList}
         </ul>
         <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+        <button class="toggle-service-btn" onclick="toggleService(${service.id})">
+            ${service.active ? 'Deactivate' : 'Activate'}
+        </button>
         <button class="edit-service-btn" onclick="openEditServiceModal(${service.id})">Edit</button>
         <button class="remove-service-btn" onclick="openDeleteServiceModal(${service.id})">Remove</button>
     `;
@@ -351,6 +355,13 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
+function toggleService(id) {
+    const serviceIndex = services.findIndex(s => s.id === id);
+    if (serviceIndex !== -1) {
+        services[serviceIndex].active = !services[serviceIndex].active;
+        renderServices();
+    }
+}
 // CRUD operations for services
 function addService() {
     const name = document.getElementById('service-name').value;
@@ -361,7 +372,8 @@ function addService() {
         id: services.length > 0 ? Math.max(...services.map(s => s.id)) + 1 : 1,
         name,
         icon,
-        details
+        details,
+        active: true // Default to active when adding new service
     };
     
     services.push(newService);
@@ -385,7 +397,8 @@ function updateService() {
             id,
             name,
             icon,
-            details
+            details,
+            active: services[serviceIndex].active // Preserve the active status
         };
         
         renderServices();
@@ -452,6 +465,7 @@ function deleteDoctor() {
     closeModal('deleteDoctorModal');
     currentDoctorId = null;
 }
+document.head.appendChild(style);
 
 // Expose functions to global scope for HTML onclick attributes
 window.openTab = openTab;
@@ -461,4 +475,5 @@ window.openDeleteServiceModal = openDeleteServiceModal;
 window.openAddDoctorModal = openAddDoctorModal;
 window.openEditDoctorModal = openEditDoctorModal;
 window.openDeleteDoctorModal = openDeleteDoctorModal;
+window.toggleService = toggleService;
 window.closeModal = closeModal;
