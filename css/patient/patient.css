@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: url('background.jpg') no-repeat center center/cover;
+  background: url('../../assets/images/background.jpg') no-repeat center center/cover;
   background: #f7fafc;
   margin: 0;
   padding: 0;
