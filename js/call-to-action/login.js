@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (userType === 'patient') {
-            window.location.href = "patient-dashboard.html";
+            window.location.href = "../Project-/pages/patient/patient.html";
         } else if (users[userType] && users[userType].email === email) {
             if (userType === 'hospital') {
                 window.location.href = "hospital-dashboard.html";
