@@ -57,9 +57,14 @@ body {
   text-decoration: none;
 }
 .logo-icon{
-    margin:5px;
-    border-radius: 5px;
-    background-color: #333;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--hospital-primary) 0%, var(--hospital-primary-light) 100%);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
 .logo-inner{
   display: flex;
