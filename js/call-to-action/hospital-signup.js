@@ -57,6 +57,6 @@ $(document).ready(function () {
       }
 
       alert("Hospital registration submitted successfully!");
-      window.location.href = "pages/hospital/hospital dashboard.html";
+      window.location.href = "../hospital/hospital dashboard.html";
     });
 });

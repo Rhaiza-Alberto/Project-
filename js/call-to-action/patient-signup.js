@@ -44,6 +44,6 @@ $(document).ready(function () {
         };
 
         localStorage.setItem('userData', JSON.stringify(userData));
-        window.location.href = "../Project-/pages/patient/profile.html";
+        window.location.href = "../patient/profile.html";
     });
 });
