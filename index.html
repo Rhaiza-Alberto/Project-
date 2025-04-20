@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthConnect | Premium Healthcare Network</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="preload" href="index.css" as="style">
     <link rel="preload" href="index.js" as="script">
@@ -46,25 +47,25 @@
                 </nav>
                 
                 <div class="auth-buttons">
-                    <a href="pages/call-to-action/login.html" class="btn btn-login">
+                    <a href="../Project-/pages/call-to-action/login.html" class="btn btn-login">
                         <span class="btn-icon">👤</span>
                         <span>Login</span>
                     </a>
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="registerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="btn-icon">✚</span>
                             <span>Register</span>
                         </button>
-                        <div class="dropdown-menu">
-                            <a href="pages/call-to-action/patient-signup.html" class="dropdown-item">
+                        <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                            <li><a href="../Project-/pages/call-to-action/patient-signup.html" class="dropdown-item">
                                 <span class="dropdown-icon">👨‍⚕️</span>
                                 Patient
-                            </a>
-                            <a href="pages/call-to-action/hospital-signup.html" class="dropdown-item">
+                            </a></li>
+                            <li><a href="../Project-/pages/call-to-action/hospital-signup.html" class="dropdown-item">
                                 <span class="dropdown-icon">🏥</span>
                                 Hospital
-                            </a>
-                        </div>
+                            </a></li>
+                        </ul>
                     </div>
                 </div>
                 
@@ -232,11 +233,11 @@
                 <h2>Ready to experience premium healthcare?</h2>
                 <p>Join thousands of satisfied patients in Zamboanga City</p>
                 <div class="cta-buttons">
-                    <a href="pages/call-to-action/patient-signup.html" class="btn btn-primary btn-large">
+                    <a href="../Project-/pages/call-to-action/patient-signup.html" class="btn btn-primary btn-large">
                         <span class="btn-icon">✚</span>
                         <span>Create Account</span>
                     </a>
-                    <a href="https://www.facebook.com/rhaiza.alberto.5" class="btn btn-accent btn-large">
+                    <a href="#contact" class="btn btn-accent btn-large">
                         <span class="btn-icon">📞</span>
                         <span>Contact Us</span>
                     </a>
@@ -279,8 +280,8 @@
                 <div class="footer-col">
                     <h3>Our Hospitals</h3>
                     <ul>
-                        <li><a href="pages/westmetro/westmetro.html">West Metro Medical</a></li>
-                        <li><a href="pages/ciudad/ciudad.html">Ciudad Medical</a></li>
+                        <li><a href="/pages/westmetro/westmetro.html">West Metro Medical</a></li>
+                        <li><a href="/pages/ciudad/ciudad.html">Ciudad Medical</a></li>
                         <li><a href="#">Zamboanga General</a></li>
                         <li><a href="#">View All</a></li>
                     </ul>
@@ -313,6 +314,8 @@
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

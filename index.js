@@ -21,37 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         'none';
                 }
             });
-            
-            if (!this.classList.contains('active')) {
-                headerWrapper.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
         });
-    });
-
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        
-        toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 992) {
-            const openDropdowns = document.querySelectorAll('.dropdown.active');
-            openDropdowns.forEach(dropdown => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
-                }
-            });
-        }
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -70,18 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const mobileMenuBtn = document.querySelector('.mobile-menu-btn.active');
                 if (mobileMenuBtn) {
-                    const headerWrapper = mobileMenuBtn.closest('.header-wrapper');
                     mobileMenuBtn.classList.remove('active');
-                    headerWrapper.classList.remove('mobile-menu-open');
+                    mobileMenuBtn.closest('.header-wrapper').classList.remove('mobile-menu-open');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     
-                    const mainNav = headerWrapper.querySelector('.main-nav');
-                    const authButtons = headerWrapper.querySelector('.auth-buttons');
-                    if (mainNav) mainNav.style.display = 'none';
-                    if (authButtons) authButtons.style.display = 'none';
-                    
-                    headerWrapper.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                        dropdown.classList.remove('active');
+                    document.querySelectorAll('.main-nav, .auth-buttons').forEach(el => {
+                        el.style.display = 'none';
                     });
                 }
             }
