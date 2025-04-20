@@ -38,7 +38,7 @@ $(document).ready(function () {
         }
 
         if (userType === 'patient') {
-            window.location.href = "../Project-/pages/patient/profile.html";
+            window.location.href = "pages/patient/profile.html";
         } else if (users[userType] && users[userType].email === email) {
             if (userType === 'hospital') {
                 window.location.href = "../Project-/pages/hospital/hospital dashboard.html";
