@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h2>HealthConnect</h2>
+  </header>
+
+  <div class="container">
+    <h3 class="welcome-text">Welcome, Patient</h3>
+
+    <div class="button-group">
+      <button class="nav-btn" onclick="showSection('profile')">Medical Profile</button>
+      <button class="nav-btn" onclick="showSection('vaccine')">Vaccination Records</button>
+      <button class="nav-btn" onclick="showSection('report')">Report Health Issue</button>
+      <button class="nav-btn" onclick="goToProfile()">Back to Profile</button>
+    </div>
+
+    <!-- Medical Profile -->
+    <div class="card tab-section" id="profile">
+      <div class="profile-card">
+        <img src="assets/patient.png" alt="Profile Picture" class="profile-img" />
+        <div class="info">
+          <h2 class="name">Jane Doe</h2>
+          <p>Age: 28</p>
+          <p>Gender: Female</p>
+          <h4>Medical History</h4>
+          <ul>
+            <li>Allergy: Penicillin</li>
+            <li>Asthma</li>
+            <li>Appendectomy (2020)</li>
+          </ul>
+
+          <label for="blood-dash">Blood Type:</label>
+          <select id="blood-dash">
+            <option>O+</option>
+            <option>A+</option>
+            <option>B+</option>
+            <option>AB+</option>
+            <option>O-</option>
+            <option>A-</option>
+            <option>B-</option>
+            <option>AB-</option>
+          </select>
+
+          <br><br>
+          <button class="edit-btn" onclick="saveChanges()">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vaccination Records -->
+    <div class="card tab-section" id="vaccine" style="display: none;">
+      <h3>Vaccination Records</h3>
+      <ul>
+        <li>COVID-19 - Pfizer - Jan 2021</li>
+        <li>Tetanus - Aug 2019</li>
+        <li>Influenza - Oct 2023</li>
+      </ul>
+    </div>
+
+    <!-- Report Health Issue -->
+    <div class="card tab-section" id="report" style="display: none;">
+      <h3>Report Health Issue</h3>
+      <textarea rows="5" style="width: 100%; padding: 0.5rem;" placeholder="Describe your health concern..."></textarea>
+      <br><br>
+      <button class="edit-btn" onclick="alert('Your health issue has been reported.')">Submit Report</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

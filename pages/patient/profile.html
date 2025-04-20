@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h2>HealthConnect</h2>
+  </header>
+
+  <div class="container">
+    <h3 class="welcome-text">Welcome, Patient</h3>
+
+    <div class="card profile-card">
+        <img src="assets/images/images (4).jpeg" alt="Profile Picture" class="profile-img" />
+      <div class="info">
+        <h2 class="name">Jane Doe</h2>
+        <p>Age: 28</p>
+        <p>Gender: Female</p>
+        <h4>Medical History</h4>
+        <ul>
+          <li>Allergy: Penicillin</li>
+          <li>Asthma</li>
+          <li>Appendectomy (2020)</li>
+        </ul>
+
+        <p><strong>Blood Type:</strong> <span id="blood-display">Loading...</span></p>
+
+        <br>
+        <button class="edit-btn" onclick="goToDashboard()">Edit Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
