@@ -1,49 +1,49 @@
-document.getElementById('signupForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+$(document).ready(function () {
+    $('#signupForm').on('submit', function (event) {
+        event.preventDefault();
 
-    const firstName = document.getElementById('First').value;
-    const lastName = document.getElementById('Last').value;
-    const middleName = document.getElementById('Middle').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword');
+        const firstName = $('#First').val();
+        const lastName = $('#Last').val();
+        const middleName = $('#Middle').val();
+        const email = $('#email').val();
+        const password = $('#password').val();
+        const confirmPassword = $('#confirmPassword');
 
-    function isValidPassword(password) {
-        const minLength = 8;
-        const hasUpperCase = /[A-Z]/.test(password);
-        const hasLowerCase = /[a-z]/.test(password);
-        const hasNumbers = /[0-9]/.test(password);
-        const hasSpecialChar = /[!*$#?@]/.test(password);
-        
-        return password.length >= minLength && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChar;
-    }
+        function isValidPassword(password) {
+            const minLength = 8;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasNumbers = /[0-9]/.test(password);
+            const hasSpecialChar = /[!*$#?@]/.test(password);
 
-    if (password !== confirmPassword.value) {
-        confirmPassword.style.borderColor = 'red'; 
-        return;
-    } else {
-        confirmPassword.style.borderColor = ''; 
-    }
+            return password.length >= minLength && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChar;
+        }
 
-    if (!isValidPassword(password)) {
-        alert("Password must be at least 8 characters long, contain uppercase and lowercase letters, numbers, and at least one special character (!*$#?@).");
-        return;
-    }
+        if (password !== confirmPassword.val()) {
+            confirmPassword.css('border-color', 'red');
+            return;
+        } else {
+            confirmPassword.css('border-color', '');
+        }
 
-    let fullName = firstName;
+        if (!isValidPassword(password)) {
+            alert("Password must be at least 8 characters long, contain uppercase and lowercase letters, numbers, and at least one special character (!*$#?@).");
+            return;
+        }
 
-    if (middleName) {
-        fullName += ` ${middleName}`; 
-    }
-    fullName += ` ${lastName}`;
+        let fullName = firstName;
+        if (middleName) {
+            fullName += ` ${middleName}`;
+        }
+        fullName += ` ${lastName}`;
 
-    const userData = {
-        fullName: fullName.trim(),
-        email: email,
-        password: password
-    };
+        const userData = {
+            fullName: $.trim(fullName),
+            email: email,
+            password: password
+        };
 
-    localStorage.setItem('userData', JSON.stringify(userData));
-
-    window.location.href = "../patient/patient.html";
+        localStorage.setItem('userData', JSON.stringify(userData));
+        window.location.href = "../patient/patient.html";
+    });
 });
