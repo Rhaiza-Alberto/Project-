@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('Login').addEventListener('submit', function(event) {
+$(document).ready(function () {
+    $('#Login').on('submit', function (event) {
         event.preventDefault();
 
-        const email = document.getElementById('loginEmail').value.trim();
-        const password = document.getElementById('loginPassword').value;
+        const email = $('#loginEmail').val().trim();
+        const password = $('#loginPassword').val();
 
         const users = {
             hospital: { email: "hospital@gmail.com" },
