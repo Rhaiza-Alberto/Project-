@@ -1,18 +1,38 @@
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --hospital-primary: #2e7d32;
+    --hospital-primary-light: #81c784;
+    --hospital-accent: #ffab40;
+    --hospital-primary-pale: #e8f5e9;
+    
+    --text: #2b2d42;
+    --text-light: #6c757d;
+    --white: #ffffff;
+    
+    --border-radius: 10px;
+    --border-radius-lg: 15px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+  }
+  * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #333;
-}
-
-.container {
-    width: 90%;
+    color: var(--text);
+    background-color: #f8fafc;
+  }
+  
+  .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
-}
+    padding: 0 20px;
+  }
 
 .hospital-header {
   position: sticky;
@@ -36,9 +56,14 @@ body {
   text-decoration: none;
 }
 .logo-icon{
-    margin:5px;
-    border-radius: 5px;
-    background-color: #333;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--hospital-primary) 0%, var(--hospital-primary-light) 100%);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
 }
 .logo-inner{
   display: flex;

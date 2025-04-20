@@ -139,22 +139,30 @@ let doctors = [
         name: "Dr. Elena Vasquez",
         specialty: "Emergency Medicine",
         bio: "Trauma specialist with 12 years experience",
-        image: "images/doctor1.jpg"
+        image: "../../assets/images/westmetro/doctor1.jpg"
     },
     {
         id: 2,
         name: "Dr. Michael Chen",
         specialty: "Cardiology",
         bio: "Interventional cardiologist",
-        image: "images/doctor2.jpg"
+        image: "../../assets/images/westmetro/doctor2.jpg"
     },
     {
         id: 3,
         name: "Dr. Sarah Johnson",
         specialty: "Oncology",
         bio: "Breast cancer specialist",
-        image: "images/doctor3.jpg"
+        image: "../../assets/images/westmetro/doctor3.jpg"
+    },
+    {
+        id: 4,
+        name: "Dr. Thomas Wright",
+        specialty: "Pulmonology",
+        bio: "Sleep disorder expert",
+        image: "../../assets/images/westmetro/doctor3.jpg"
     }
+
 ];
 
 // Variables to track which service/doctor is being edited/deleted
