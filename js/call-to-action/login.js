@@ -41,7 +41,7 @@ $(document).ready(function () {
             window.location.href = "../Project-/pages/patient/profile.html";
         } else if (users[userType] && users[userType].email === email) {
             if (userType === 'hospital') {
-                window.location.href = "hospital-dashboard.html";
+                window.location.href = "../Project-/pages/hospital/hospital dashboard.html";
             } else if (userType === 'admin') {
                 window.location.href = "../admin/admin.html";
             }
