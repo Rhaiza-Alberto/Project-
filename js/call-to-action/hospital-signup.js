@@ -44,11 +44,11 @@ $(document).ready(function () {
     alert("Hospital registration submitted successfully!");
 
     if (loginEmail.includes("westmetro")) {
-      window.location.href = "westmetro-dashboard.html";
+      window.location.href = "../westmetro/westmetroAdmin.htm";
     } else if (loginEmail.includes("ciudadmedical")) {
-      window.location.href = "ciudadmedical-dashboard.html";
+      window.location.href = "../ciudad/ciudadAdmin.html";
     } else {
-      window.location.href = "../hospital/hospital dashboard.html";
+      window.location.href = "../../index.html";
     }
   });
 });
