@@ -24,7 +24,7 @@
                     <ul>
                         <li><a href="#services" class="nav-button">Services</a></li>
                         <li><a href="#doctors" class="nav-button">Doctors</a></li>
-                        <li><a href="#location" class="nav-button">Location</a></li>
+                        <li><a href="https://www.google.com/maps?rlz=1C1VDKB_enPH1144PH1144&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEINTYxNmowajGoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&geocode=KWNsSbT0QVAyMerHhLzcQ1aZ&daddr=Veterans+Ave+Ext.,+Extension,+Zamboanga,+7000+Zamboanga+del+Sur" class="nav-button">Location</a></li>
                         <li><a href="#contact" class="nav-button">Contact</a></li>
                     </ul>
                 </nav>
@@ -283,6 +283,64 @@
             <a href="#schedule" class="btn btn-accent btn-large">Book Appointment Now</a>
         </div>
     </section>
+
+    <div class="modal-overlay" id="appointmentModal">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <h3>Schedule Appointment</h3>
+            <form class="appointment-form">
+                <div class="form-group">
+                    <label for="appointmentType">Appointment Type</label>
+                    <select id="appointmentType" required>
+                        <option value="">Select Service</option>
+                        <option value="emergency">Emergency Visit</option>
+                        <option value="cardiology">Cardiology Consultation</option>
+                        <option value="pediatrics">Pediatrics Visit</option>
+                        <option value="neurology">Neurology Consultation</option>
+                        <option value="orthopedics">Orthopedics Visit</option>
+                        <option value="oncology">Oncology Consultation</option>
+                        <option value="gastro">Gastroenterology Procedure</option>
+                        <option value="pulmonology">Pulmonology Consultation</option>
+                        <option value="radiology">Radiology Imaging</option>
+                        <option value="surgery">Surgery Consultation</option>
+                        <option value="nephrology">Nephrology Visit</option>
+                        <option value="rheumatology">Rheumatology Visit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDoctor">Doctor (if applicable)</label>
+                    <select id="appointmentDoctor">
+                        <option value="">Select Doctor</option>
+                        <option value="vasquez">Dr. Elena Vasquez (Emergency)</option>
+                        <option value="chen">Dr. Michael Chen (Cardiology)</option>
+                        <option value="johnson">Dr. Sarah Johnson (Oncology)</option>
+                        <option value="wright">Dr. Thomas Wright (Pulmonology)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Time</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Your Name</label>
+                    <input type="text" id="patientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientPhone">Phone Number</label>
+                    <input type="tel" id="patientPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentReason">Reason for Visit</label>
+                    <textarea id="appointmentReason" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Appointment</button>
+            </form>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
