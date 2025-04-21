@@ -123,4 +123,80 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 250);
     });
+
+    const appointmentModal = document.getElementById('appointmentModal');
+    const serviceModal = document.getElementById('serviceModal');
+    const bookAppointmentBtn = document.querySelector('a[href="#appointment"]');
+    const learnMoreBtns = document.querySelectorAll('.service-card .btn-outline');
+    const modalCloses = document.querySelectorAll('.modal-close');
+    const bookFromServiceBtn = document.getElementById('bookFromService');
+    
+    if (bookAppointmentBtn) {
+        bookAppointmentBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            appointmentModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    learnMoreBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const serviceCard = btn.closest('.service-card');
+            const serviceTitle = serviceCard.querySelector('h3').textContent;
+            const serviceDescription = serviceCard.querySelector('p').textContent;
+            
+            document.getElementById('serviceModalTitle').textContent = serviceTitle;
+            document.getElementById('serviceModalContent').innerHTML = `
+                <p>${serviceDescription}</p>
+                <div class="service-features">
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Board-certified specialists</li>
+                        <li>Flexible scheduling options</li>
+                        <li>Digital health records</li>
+                        <li>Follow-up care coordination</li>
+                    </ul>
+                </div>
+            `;
+            
+            serviceModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    modalCloses.forEach(btn => {
+        btn.addEventListener('click', () => {
+            appointmentModal.classList.remove('active');
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    if (bookFromServiceBtn) {
+        bookFromServiceBtn.addEventListener('click', () => {
+            serviceModal.classList.remove('active');
+            appointmentModal.classList.add('active');
+        });
+    }
+    
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal-overlay')) {
+            e.target.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    document.querySelector('.appointment-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const hospital = document.getElementById('appointmentHospital').value;
+        const date = document.getElementById('appointmentDate').value;
+        const time = document.getElementById('appointmentTime').value;
+        const reason = document.getElementById('appointmentReason').value;
+        
+        alert(`Appointment booked successfully!\n\nHospital: ${hospital}\nDate: ${date}\nTime: ${time}\nReason: ${reason}`);
+        appointmentModal.classList.remove('active');
+        document.body.style.overflow = '';
+        e.target.reset();
+    });
 });
