@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>West Metro Medical Center</title>
+  <link rel="stylesheet" href="../../css/westmetro/westmetro-dashboard.css" />
+</head>
+<body>
+  <div class="sidebar">   
+    <img src="img/logo.jpg" alt="Hospital Logo" class="logo" />
+    <h2>HOSPITAL</h2>
+    <a href="#" class="active" onclick="showSection('patients')">Patients</a>
+    <a href="#" onclick="showSection('appointments')">Appointments</a>
+    <a href="#" onclick="showSection('records')">Medical Records</a>
+    <a href="#" onclick="showSection('reports')">Reports</a>
+    <a href="index.html">Home</a>
+
+  </div>
+
+  <div class="main">
+    <div class="topbar">West Metro Medical Center</div>
+
+    <div id="patients" class="section">
+      <h3>Patient List</h3>
+      <input type="text" placeholder="Search by name..." id="searchPatient" onkeyup="searchPatients()" />
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Status</th>
+            <th>Next Appointment</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="patientTable">
+          <tr>
+            <td>Floraly Bernardo</td>
+            <td>19</td>
+            <td>Active</td>
+            <td>2025-04-21</td>
+            <td><button>Edit</button> <button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Rhaiza Alberto</td>
+            <td>18</td>
+            <td>Recovering</td>
+            <td>2025-04-23</td>
+            <td><button>Edit</button> <button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Emir Marcelino</td>
+            <td>21</td>
+            <td>Stable</td>
+            <td>2025-04-25</td>
+            <td><button>Edit</button> <button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Patrick Duran</td>
+            <td>19</td>
+            <td>Recovering</td>
+            <td>2025-04-26</td>
+            <td><button>Edit</button> <button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Ahmad Advar</td>
+            <td>20</td>
+            <td>Active</td>
+            <td>2025-04-27</td>
+            <td><button>Edit</button> <button>Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="appointments" class="section" style="display: none;">
+      <h3>Appointments</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Doctor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Floralyn Bernardo</td>
+            <td>2025-04-21</td>
+            <td>10:00 AM</td>
+            <td>Dr. Duran</td>
+            <td>Confirmed</td>
+          </tr>
+          <tr>
+            <td>Rhaiza Alberto</td>
+            <td>2025-04-23</td>
+            <td>2:00 PM</td>
+            <td>Dr. Marcelino</td>
+            <td>Pending</td>
+          </tr>
+          <tr>
+            <td>Emir Marcelino</td>
+            <td>2025-04-25</td>
+            <td>11:00 AM</td>
+            <td>Dr. Sanchez</td>
+            <td>Confirmed</td>
+          </tr>
+          <tr>
+            <td>Patrick Duran</td>
+            <td>2025-04-26</td>
+            <td>9:00 AM</td>
+            <td>Dr. Rivera</td>
+            <td>Pending</td>
+          </tr>
+          <tr>
+            <td>Ahmad Advar</td>
+            <td>2025-04-27</td>
+            <td>1:00 PM</td>
+            <td>Dr. Garcia</td>
+            <td>Confirmed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="records" class="section" style="display: none;">
+      <h3>Medical Records</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Diagnosis</th>
+            <th>Treatment</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Floralyn Bernardo</td>
+            <td>URI</td>
+            <td>Antibiotics</td>
+            <td>Dr. Duran</td>
+            <td>2025-04-10</td>
+            <td><button onclick="viewRecord('Floralyn Bernardo')">View</button></td>
+          </tr>
+          <tr>
+            <td>Rhaiza Alberto</td>
+            <td>Hypertension</td>
+            <td>Medication</td>
+            <td>Dr. Marcelino</td>
+            <td>2025-04-14</td>
+            <td><button onclick="viewRecord('Rhaiza Alberto')">View</button></td>
+          </tr>
+          <tr>
+            <td>Emir Marcelino</td>
+            <td>Asthma</td>
+            <td>Inhaler</td>
+            <td>Dr. Sanchez</td>
+            <td>2025-04-16</td>
+            <td><button onclick="viewRecord('Anna Clara')">View</button></td>
+          </tr>
+          <tr>
+            <td>Patrick Duran</td>
+            <td>Gastritis</td>
+            <td>Antacids</td>
+            <td>Dr. Rivera</td>
+            <td>2025-04-18</td>
+            <td><button onclick="viewRecord('Mario Lopez')">View</button></td>
+          </tr>
+          <tr>
+            <td>Ahmad Advar</td>
+            <td>Back Pain</td>
+            <td>Painkillers</td>
+            <td>Dr. Garcia</td>
+            <td>2025-04-20</td>
+            <td><button onclick="viewRecord('Josephine Cruz')">View</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="reports" class="section" style="display: none;">
+      <h3>Reports</h3>
+      <div class="report-cards">
+        <div class="card">
+          <h4>Total Patients</h4>
+          <p>120</p>
+        </div>
+        <div class="card">
+          <h4>Appointments</h4>
+          <p>8</p>
+        </div>
+        <div class="card">
+          <h4>Pending Records</h4>
+          <p>3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/westmetro/westmetro-dashboard.js" defer></script>
+</body>
+</html>
