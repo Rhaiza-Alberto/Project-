@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../../css/call-to-action/login.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="../../css/call-to-action/login.css" />
 </head>
 <body>
-    <div class="containerlog">
-        <h1>Log In</h1>
-        <form id="Login">
-            <div class="email-field">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" name="loginEmail" required>
-            </div>
+  <div class="containerlog">
+    <h1>Log In</h1>
+    <form id="Login">
+      <div class="email-field">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="loginEmail" required />
+      </div>
 
-            <div class="password-field">
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" name="loginPassword" required>
-            </div>
-
-            <button type="submit">Log In</button>
-        </form>
-
-        <div class="signup-link">
-            <p>Don't have an account? <a href="../../index.html">Register Here</a></p>
+      <div class="password-field">
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required />
+        
+        <!-- ✅ Forgot Password in casual spot -->
+        <div class="forgot-password" style="margin-top: 6px; text-align: right;">
+          <a href="#" style="font-size: 0.9rem; color: #1976d2; text-decoration: none;">Forgot Password?</a>
         </div>
+      </div>
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <div class="signup-link">
+      <p>Don't have an account? <a href="../../index.html">Register Here</a></p>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/call-to-action/login.js" defer></script>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../../js/call-to-action/login.js" defer></script>
 </body>
 </html>

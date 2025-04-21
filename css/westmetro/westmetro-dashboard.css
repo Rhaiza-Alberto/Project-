@@ -1,15 +1,15 @@
 :root {
-  --hospital-primary: #0d3b66;           /* Deep Navy Blue */
-  --hospital-primary-light: #4a9fe0;     /* Lighter Blue */
-  --hospital-accent: #ff7f50;            /* Coral (Accent) */
-  --hospital-primary-pale: #e6f2fa;      /* Very light blue */
+  --hospital-primary: #0d3b66;
+  --hospital-primary-light: #4a9fe0;
+  --hospital-accent: #ff7f50;
+  --hospital-primary-pale: #e6f2fa;
 
   --text: #2b2d42;
   --text-light: #6c757d;
   --white: #ffffff;
-  
+
   --border-radius: 10px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 }
 
@@ -23,6 +23,7 @@ body {
 .main {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
 
 .topbar {
@@ -40,6 +41,7 @@ body {
   width: 200px;
   background-color: var(--hospital-primary-pale);
   padding-top: 20px;
+  flex-shrink: 0;
 }
 
 .sidebar a {
@@ -74,7 +76,8 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -111,4 +114,57 @@ button:hover {
 
 .back-button-container {
   margin-bottom: 20px;
+}
+
+/* ✅ Responsiveness */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .sidebar a {
+    padding: 10px 15px;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .content {
+    padding: 100px 20px 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .sidebar a {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  th,
+  td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
 }

@@ -10,6 +10,7 @@ body {
   height: 100vh;
   background: url('../../assets/images/Backgrouddddd.jpg') no-repeat center center fixed;
   background-size: cover;
+  flex-direction: column; /* fallback for mobile */
 }
 
 .logo {
@@ -119,6 +120,8 @@ button:hover {
   display: flex;
   gap: 20px;
   margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -139,4 +142,64 @@ button:hover {
 #activityTable th, #activityTable td {
   border: 1px solid #ccc;
   padding: 10px;
+}
+
+/* ✅ RESPONSIVENESS */
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  .sidebar a {
+    padding: 10px;
+    display: inline-block;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  .report-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .topbar {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  table,
+  #activityTable {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
 }

@@ -9,7 +9,7 @@ body {
 .containerlog {
     width: 400px;
     margin: 80px auto;
-    padding: 20px;
+    padding: 20px 25px;
     background-color: rgba(255, 255, 255, 0.92);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -17,6 +17,7 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .name-container {
@@ -31,10 +32,26 @@ h1 {
 input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border: 2px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.forgot-password a {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
 }
 
 button {
@@ -45,13 +62,37 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    margin: 0 auto;
+    margin: 20px auto 10px auto;
     transition: background-color 0.3s ease;
-}
-.signup-link{
-    text-align: center;
 }
 
 button:hover {
-    background-color: #007bff;
+    background-color: #0056b3;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ✅ Responsiveness */
+@media (max-width: 500px) {
+    .containerlog {
+        width: 90%;
+        margin: 60px auto;
+        padding: 20px;
+    }
+
+    .name-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .name-field {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
 }

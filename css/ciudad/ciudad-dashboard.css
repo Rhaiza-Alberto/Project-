@@ -11,6 +11,7 @@ body {
 .main {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
 
 .topbar {
@@ -28,6 +29,7 @@ body {
   width: 200px;
   background-color: #e8f5e9; /* Light green background */
   padding-top: 20px;
+  flex-shrink: 0;
 }
 
 .sidebar a {
@@ -99,4 +101,57 @@ button:hover {
 
 h3 {
   color: var(--hospital-primary);
+}
+
+/* ✅ Responsiveness */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .sidebar a {
+    padding: 10px 15px;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .content {
+    padding: 100px 20px 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .sidebar a {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .btn,
+  button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  th,
+  td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
 }

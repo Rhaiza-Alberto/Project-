@@ -1,122 +1,149 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('../../assets/images/Backgrouddddd.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('../../assets/images/Backgrouddddd.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+form {
+  width: 100%;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: bold;
+  color: #007bff;
+  padding: 0 10px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  display: block;
+  width: 60%;
+  margin: 20px auto;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* ✅ Enhanced Responsiveness */
+@media (max-width: 768px) {
   .container {
-    max-width: 700px;
-    margin: 60px auto;
+    margin: 40px 20px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-  }
-  
-  form {
-    width: 100%;
-  }
-  
-  fieldset {
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  legend {
-    font-weight: bold;
-    color: #007bff;
-    padding: 0 10px;
-  }
-  
+
   .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 15px;
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .form-field {
-    flex: 1;
-    min-width: 200px;
+
+  button {
+    width: 80%;
   }
-  
-  label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 500;
-    color: #444;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 20px 10px;
+    padding: 15px;
   }
-  
+
+  h2 {
+    font-size: 22px;
+  }
+
   input,
   select,
   textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 15px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
-  }
-  
-  input:focus,
-  select:focus,
-  textarea:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  button {
-    display: block;
-    width: 60%;
-    margin: 20px auto;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  p {
-    text-align: center;
     font-size: 14px;
-    margin-top: 10px;
   }
-  
-  p a {
-    color: #007bff;
-    text-decoration: none;
+
+  button {
+    width: 100%;
+    font-size: 15px;
   }
-  
-  @media (max-width: 600px) {
-    .container {
-      margin: 30px 10px;
-      padding: 15px;
-    }
-  
-    .form-row {
-      flex-direction: column;
-    }
-  
-    button {
-      width: 100%;
-    }
+
+  p {
+    font-size: 13px;
   }
-  
+}
