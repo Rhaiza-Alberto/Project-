@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hospital Admin Dashboard</title>
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" />
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../../css/hospital/hospital dashboard.css" />
 </head>
 <body>
@@ -13,9 +19,8 @@
     <div class="section">
       <div class="patient-header">
         <h3>Patient List</h3>
-        <input type="text" placeholder="Search by name..." id="searchPatient" onkeyup="searchPatients()" />
       </div>
-      <table>
+      <table id="patientListTable" class="display nowrap" style="width:100%">
         <thead>
           <tr>
             <th>Name</th>
@@ -25,7 +30,7 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody id="patientTable">
+        <tbody>
           <tr>
             <td>Floraly Bernardo</td>
             <td>19</td>
@@ -46,7 +51,7 @@
 
     <div class="section">
       <h3>Appointments</h3>
-      <table>
+      <table id="appointmentsTable" class="display nowrap" style="width:100%">
         <thead>
           <tr>
             <th>Patient</th>
@@ -58,7 +63,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Floralyn Bernardo</td>
+            <td>Floraly Bernardo</td>
             <td>2025-04-21</td>
             <td>10:00 AM</td>
             <td>Dr. Duran</td>
@@ -77,7 +82,7 @@
 
     <div class="section">
       <h3>Medical Records</h3>
-      <table>
+      <table id="medicalRecordsTable" class="display nowrap" style="width:100%">
         <thead>
           <tr>
             <th>Patient</th>
@@ -90,7 +95,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Floralyn Bernardo</td>
+            <td>Floraly Bernardo</td>
             <td>URI</td>
             <td>Antibiotics</td>
             <td>Dr. Duran</td>
@@ -128,6 +133,23 @@
     </div>
   </div>
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+  <!-- Initialize DataTables -->
+  <script>
+    $(document).ready(function () {
+      $('#patientListTable').DataTable({ responsive: true });
+      $('#appointmentsTable').DataTable({ responsive: true });
+      $('#medicalRecordsTable').DataTable({ responsive: true });
+    });
+  </script>
+
+  <!-- Your custom script -->
   <script src="hospital-admin.js" defer></script>
 </body>
 </html>
