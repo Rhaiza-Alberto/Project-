@@ -5,12 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ciudad Admin Dashboard</title>
 
-  <!-- ✅ DataTables CSS (no UI interference) -->
+  <!-- ✅ DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 
-  <!-- ✅ Your Original CSS -->
+  <!-- ✅ Custom Synced Dashboard CSS -->
   <link rel="stylesheet" href="../../css/ciudad/ciudad-dashboard.css" />
+
+  <!-- ✅ Back Button Style -->
+  <style>
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 16px;
+      background-color: #1976d2;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0d47a1;
+    }
+  </style>
 </head>
 <body>
   <div class="main">
@@ -23,9 +42,12 @@
     </div>
 
     <div class="content">
+      <!-- ✅ Back to Main Admin Button -->
+      <a href="../ciudad/ciudadAdmin.html" class="btn">⬅ Back to Main Admin</a>
+
       <div id="patients" class="section">
         <h3>Patient List</h3>
-        <table id="patientTable">
+        <table id="patientTable" class="display responsive nowrap">
           <thead>
             <tr>
               <th>Name</th>
@@ -56,7 +78,7 @@
 
       <div id="appointments" class="section" style="display:none">
         <h3>Appointments</h3>
-        <table id="appointmentsTable">
+        <table id="appointmentsTable" class="display responsive nowrap">
           <thead>
             <tr>
               <th>Patient</th>
@@ -87,7 +109,7 @@
 
       <div id="records" class="section" style="display:none">
         <h3>Medical Records</h3>
-        <table id="recordsTable">
+        <table id="recordsTable" class="display responsive nowrap">
           <thead>
             <tr>
               <th>Patient</th>
@@ -126,7 +148,7 @@
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 
-  <!-- ✅ Your Script -->
+  <!-- ✅ Dashboard Logic -->
   <script src="../../js/ciudad/ciudad-dashboard.js" defer></script>
 </body>
 </html>

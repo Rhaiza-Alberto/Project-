@@ -1,3 +1,8 @@
+:root {
+  --hospital-primary: #2e7d32;   /* Dark Green */
+  --hospital-accent: #43a047;   /* Accent Green */
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -11,7 +16,7 @@ body {
 .topbar {
   position: fixed;
   width: 100%;
-  background-color: #004c99;
+  background-color: var(--hospital-primary);
   color: white;
   padding: 10px 20px;
   font-size: 20px;
@@ -21,21 +26,21 @@ body {
 .sidebar {
   margin-top: 50px;
   width: 200px;
-  background-color: #e3f2fd;
+  background-color: #e8f5e9; /* Light green background */
   padding-top: 20px;
 }
 
 .sidebar a {
   display: block;
   padding: 12px 20px;
-  color: #004c99;
+  color: var(--hospital-primary);
   text-decoration: none;
   transition: 0.3s;
 }
 
 .sidebar a:hover,
 .sidebar a.active {
-  background-color: #bbdefb;
+  background-color: #c8e6c9; /* Hover green */
   font-weight: bold;
 }
 
@@ -43,6 +48,7 @@ body {
   flex: 1;
   padding: 80px 30px 30px 30px;
   overflow-y: auto;
+  background-color: #f9f9f9;
 }
 
 .section {
@@ -63,11 +69,34 @@ th, td {
 button {
   padding: 5px 10px;
   border: none;
-  background-color: #1976d2;
+  background-color: var(--hospital-accent);
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0d47a1;
+  background-color: var(--hospital-primary);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--hospital-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--hospital-primary);
+}
+
+.back-button-container {
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: var(--hospital-primary);
 }
