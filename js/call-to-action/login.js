@@ -6,8 +6,11 @@ $(document).ready(function () {
         const password = $('#loginPassword').val();
 
         const users = {
-            hospital: { email: "hospital@gmail.com" },
-            admin: { email: "admin@gmail.com" }
+            hospital: {
+                westmetro: "westmetro@gmail.com",
+                ceudadmedical: "ceudadmedical@gmail.com"
+            },
+            admin: "admin@gmail.com"
         };
 
         const isValidPassword = (pwd) => {
@@ -21,10 +24,12 @@ $(document).ready(function () {
 
         let userType;
 
-        if (email.includes("admin")) {
+        if (email === users.admin) {
             userType = 'admin';
-        } else if (email.includes("hospital")) {
-            userType = 'hospital';
+        } else if (email === users.hospital.westmetro) {
+            userType = 'westmetro';
+        } else if (email === users.hospital.ceudadmedical) {
+            userType = 'ceudadmedical';
         } else if (email.endsWith("@gmail.com")) {
             userType = 'patient';
         } else {
@@ -39,12 +44,12 @@ $(document).ready(function () {
 
         if (userType === 'patient') {
             window.location.href = "../patient/profile.html";
-        } else if (users[userType] && users[userType].email === email) {
-            if (userType === 'hospital') {
-                window.location.href = "../hospital/hospital dashboard.html";
+        } else if (userType === 'westmetro') {
+            window.location.href = "westmetro-dashboard.html";
+        } else if (userType === 'ceudadmedical') {
+            window.location.href = "ceudadmedical-dashboard.html";
             } else if (userType === 'admin') {
                 window.location.href = "../admin/admin.html";
-            }
         } else {
             alert("Invalid credentials. Please try again.");
         }
