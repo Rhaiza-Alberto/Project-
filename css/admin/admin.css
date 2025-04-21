@@ -7,10 +7,10 @@
 body {
   font-family: Arial, sans-serif;
   display: flex;
+  flex-direction: row;
   height: 100vh;
   background: url('../../assets/images/Backgrouddddd.jpg') no-repeat center center fixed;
   background-size: cover;
-  flex-direction: column; /* fallback for mobile */
 }
 
 .logo {
@@ -121,7 +121,7 @@ button:hover {
   gap: 20px;
   margin: 20px 0;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .card {
@@ -130,7 +130,7 @@ button:hover {
   border-radius: 10px;
   width: 200px;
   text-align: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 #activityTable {
@@ -139,13 +139,13 @@ button:hover {
   margin-top: 20px;
 }
 
-#activityTable th, #activityTable td {
+#activityTable th,
+#activityTable td {
   border: 1px solid #ccc;
   padding: 10px;
 }
 
-/* ✅ RESPONSIVENESS */
-
+/* ✅ Responsiveness */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
@@ -154,31 +154,51 @@ button:hover {
   .sidebar {
     width: 100%;
     text-align: center;
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .sidebar h2 {
+    width: 100%;
+    margin-bottom: 10px;
   }
 
   .sidebar a {
+    flex: 1 1 auto;
     padding: 10px;
-    display: inline-block;
+    font-size: 14px;
   }
 
   .main {
     padding: 15px;
   }
 
+  .topbar {
+    font-size: 16px;
+    padding: 12px 15px;
+    text-align: center;
+  }
+
+  table,
+  #activityTable {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
   .report-cards {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
   }
 
   .card {
     width: 90%;
-    margin-bottom: 15px;
-  }
-
-  .topbar {
-    text-align: center;
-    font-size: 16px;
   }
 }
 
@@ -188,18 +208,22 @@ button:hover {
     padding: 10px;
   }
 
+  .sidebar a {
+    font-size: 13px;
+    padding: 8px;
+  }
+
   table,
   #activityTable {
     font-size: 12px;
   }
 
-  th,
-  td {
-    padding: 8px;
+  button {
+    width: 100%;
+    margin-bottom: 10px;
   }
 
-  button {
-    padding: 5px 8px;
-    font-size: 12px;
+  .card {
+    width: 100%;
   }
 }
