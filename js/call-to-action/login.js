@@ -45,7 +45,7 @@ $(document).ready(function () {
             window.location.href = "../patient/profile.html";
         } else if (userType === 'westmetro') {
             window.location.href = "../westmetro/westmetroAdmin.html";
-        } else if (userType === 'ceudadmedical') {
+        } else if (userType === 'ciudadmedical') {
             window.location.href = "../ciudad/ciudadAdmin.html";
             } else if (userType === 'admin') {
                 window.location.href = "../admin/admin.html";
