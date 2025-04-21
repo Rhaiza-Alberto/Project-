@@ -8,7 +8,7 @@ $(document).ready(function () {
         const users = {
             hospital: {
                 westmetro: "westmetro@gmail.com",
-                ceudadmedical: "ceudadmedical@gmail.com"
+                ciudadmedical: "ciudadmedical@gmail.com"
             },
             admin: "admin@gmail.com"
         };
@@ -28,8 +28,8 @@ $(document).ready(function () {
             userType = 'admin';
         } else if (email === users.hospital.westmetro) {
             userType = 'westmetro';
-        } else if (email === users.hospital.ceudadmedical) {
-            userType = 'ceudadmedical';
+        } else if (email === users.hospital.ciudadmedical) {
+            userType = 'ciudadmedical';
         } else if (email.endsWith("@gmail.com")) {
             userType = 'patient';
         } else {
@@ -41,7 +41,6 @@ $(document).ready(function () {
             alert("Password must be at least 8 characters long, contain uppercase and lowercase letters, a number, and at least one special character (! * $ # ? @).");
             return;
         }
-
         if (userType === 'patient') {
             window.location.href = "../patient/profile.html";
         } else if (userType === 'westmetro') {
