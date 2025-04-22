@@ -8,7 +8,7 @@ function loadHospitalTable() {
   const tableBody = document.querySelector('#hospitalTable tbody');
   const registrations = [
     { hospitalName: "Zamboanga City Medical Center", status: "pending", loginEmail: "zcmc@example.com" },
-    { hospitalName: "Brent Hospital and Colleges Inc.", status: "approved", loginEmail: "brent@example.com" },
+    { hospitalName: "West Metro Medical Center", status: "approved", loginEmail: "westmetro@example.com" },
     { hospitalName: "Ciudad Medical Zamboanga", status: "rejected", loginEmail: "cmz@example.com" }
   ];
 
