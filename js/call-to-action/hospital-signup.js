@@ -44,7 +44,7 @@ $(document).ready(function () {
     alert("Hospital registration submitted successfully!");
 
     if (loginEmail.includes("westmetro")) {
-      window.location.href = "../westmetro/westmetroAdmin.htm";
+      window.location.href = "../westmetro/westmetroAdmin.html";
     } else if (loginEmail.includes("ciudadmedical")) {
       window.location.href = "../ciudad/ciudadAdmin.html";
     } else {
