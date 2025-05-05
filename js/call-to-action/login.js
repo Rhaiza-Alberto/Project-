@@ -55,10 +55,12 @@ $(document).ready(function () {
     });
 });
 
+//back button functionality
 document.getElementById("backBtn").addEventListener("click", function () {
     window.location.href = "../../index.html"; 
   });
 
+//login button functionality
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
   
