@@ -52,3 +52,26 @@ document.addEventListener("DOMContentLoaded", () => {
     bloodDropdown.value = stored;
   }
 });
+
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+
+        if (email && password) {
+            // Set login flag
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Login successful!');
+            window.location.href = '../../index.html'; // adjust if needed
+        } else {
+            alert('Please enter valid credentials.');
+        }
+    });
+}
+
+document.getElementById('backToLanding').addEventListener('click', function () {
+  window.location.href = '../../index.html'; // Back to landing
+});

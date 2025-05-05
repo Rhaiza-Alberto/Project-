@@ -47,3 +47,8 @@ $(document).ready(function () {
         window.location.href = "../patient/profile.html";
     });
 });
+
+document.getElementById("backBtn").addEventListener("click", function () {
+    window.location.href = "../../index.html"; 
+  });
+  

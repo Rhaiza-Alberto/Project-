@@ -54,3 +54,18 @@ $(document).ready(function () {
         }
     });
 });
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+  
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+  
+    if (email && password) {
+      localStorage.setItem('isLoggedIn', 'true');
+      alert('Login successful!');
+      window.location.href = '../../index.html'; // ✅ redirect to landing
+    } else {
+      alert('Please enter email and password.');
+    }
+  });

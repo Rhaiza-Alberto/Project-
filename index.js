@@ -200,3 +200,23 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.reset();
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loginBtn = document.getElementById('loginBtn');
+    const profileBtn = document.getElementById('profileBtn');
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    if (isLoggedIn === 'true') {
+        loginBtn.style.display = 'none';
+        profileBtn.style.display = 'inline-flex'; // Show profile
+    } else {
+        loginBtn.style.display = 'inline-flex';
+        profileBtn.style.display = 'none'; // Hide profile
+    }
+
+    // Optional: click to go to profile page
+    profileBtn.addEventListener('click', () => {
+        window.location.href = './pages/profile.html'; // adjust path if needed
+    });
+});

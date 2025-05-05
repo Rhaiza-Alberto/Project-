@@ -39,10 +39,12 @@
 
         <div class="mt-4 d-flex flex-wrap gap-2">
           <button class="edit-btn btn btn-primary" onclick="goToDashboard()">Edit Profile</button>
-          <a href="../../index.html" class="btn btn-secondary">Back to Home Page</a>
+          <a href="../../index.html" class="btn btn-secondary id=backToLanding">Back to Home Page</a>
         </div>
       </div>
     </div>
+    <a href="../../index.html" onclick="localStorage.removeItem('isLoggedIn');">Logout</a>
+    
   </div>
 
   <!-- Bootstrap JS -->
