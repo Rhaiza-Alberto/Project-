@@ -201,22 +201,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//login button functionality
 document.addEventListener('DOMContentLoaded', function () {
     const loginBtn = document.getElementById('loginBtn');
     const profileBtn = document.getElementById('profileBtn');
 
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userType = localStorage.getItem('userType');
 
-    if (isLoggedIn === 'true') {
-        loginBtn.style.display = 'none';
-        profileBtn.style.display = 'inline-flex'; // Show profile
-    } else {
-        loginBtn.style.display = 'inline-flex';
-        profileBtn.style.display = 'none'; // Hide profile
+    if (loginBtn && profileBtn) {
+        if (isLoggedIn) {
+            loginBtn.style.display = 'none';
+            profileBtn.style.display = 'inline-flex';
+
+            profileBtn.addEventListener('click', () => {
+                if (userType === 'patient') {
+                    window.location.href = './pages/patient/profile.html';
+                } else if (userType === 'westmetro') {
+                    window.location.href = './pages/westmetro/westmetroAdmin.html';
+                } else if (userType === 'ciudadmedical') {
+                    window.location.href = './pages/ciudad/ciudadAdmin.html';
+                } else if (userType === 'admin') {
+                    window.location.href = './pages/admin/admin.html';
+                } else {
+                    alert("User type not recognized.");
+                }
+            });
+        } else {
+            loginBtn.style.display = 'inline-flex';
+            profileBtn.style.display = 'none';
+        }
     }
-
-    // Optional: click to go to profile page
-    profileBtn.addEventListener('click', () => {
-        window.location.href = './pages/profile.html'; // adjust path if needed
-    });
 });
