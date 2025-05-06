@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 :root {
   --primary-dark: #0d3b66;
   --primary: #1d6fa3;
@@ -68,6 +69,7 @@ p {
   color: var(--text-light);
 }
 
+/* ===== Button Styles ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -118,6 +120,7 @@ p {
 .btn-login {
   background-color: var(--off-white);
   color: var(--text);
+  border: 1px solid var(--light-gray);
 }
 
 .btn-login:hover {
@@ -129,6 +132,7 @@ p {
   font-size: 1.1rem;
 }
 
+/* ===== Header Styles ===== */
 .premium-header {
   position: sticky;
   top: 0;
@@ -142,7 +146,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .logo {
@@ -211,10 +215,12 @@ p {
 
 .nav-icon {
   font-size: 1.2rem;
+  color: var(--primary);
 }
 
-.auth-buttons {
+.auth-section {
   display: flex;
+  align-items: center;
   gap: 12px;
 }
 
@@ -238,6 +244,7 @@ p {
   transition: var(--transition);
 }
 
+/* ===== Hero Section ===== */
 .hero {
   position: relative;
   padding: 140px 0;
@@ -289,6 +296,7 @@ p {
   flex-wrap: wrap;
 }
 
+/* ===== Section Styles ===== */
 .section {
   padding: 80px 0;
 }
@@ -322,6 +330,7 @@ p {
   margin: 0 auto;
 }
 
+/* ===== Hospital Cards ===== */
 .hospital-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -416,6 +425,7 @@ p {
   margin-top: 20px;
 }
 
+/* ===== Service Cards ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -444,6 +454,7 @@ p {
   color: var(--primary);
 }
 
+/* ===== CTA Section ===== */
 .cta {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: var(--white);
@@ -475,6 +486,7 @@ p {
   border-radius: 50%;
 }
 
+/* ===== Footer Styles ===== */
 .premium-footer {
   background-color: var(--primary-dark);
   color: var(--white);
@@ -608,69 +620,7 @@ p {
   color: var(--white);
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.dropdown-toggle::after {
-  content: "▼";
-  font-size: 0.6rem;
-  margin-left: 5px;
-  transition: transform 0.2s ease;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 5px);
-  right: 0;
-  min-width: 220px;
-  background-color: var(--white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
-  padding: 10px 0;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(5px);
-  transition: var(--transition);
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown:hover .dropdown-toggle::after,
-.dropdown:focus-within .dropdown-toggle::after {
-  transform: rotate(180deg);
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
-  color: var(--text);
-  text-decoration: none;
-  transition: var(--transition);
-  white-space: nowrap;
-}
-
-.dropdown-item:hover {
-  background-color: var(--primary-pale);
-  color: var(--primary-dark);
-}
-
+/* ===== Modal Styles ===== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -697,6 +647,8 @@ p {
   border-radius: var(--border-radius-lg);
   width: 90%;
   max-width: 500px;
+  max-height: 90vh; /* Add this line */
+  overflow-y: auto; /* Add this line */
   padding: 30px;
   position: relative;
   transform: translateY(20px);
@@ -758,6 +710,7 @@ p {
   justify-content: flex-end;
 }
 
+/* ===== Responsive Styles ===== */
 @media (max-width: 480px) {
   .modal-container {
       padding: 20px;
@@ -800,31 +753,16 @@ p {
       order: 4;
   }
   
-  .header-wrapper.mobile-menu-open .main-nav {
-      display: block;
-  }
-  
-  .auth-buttons {
+  .auth-section {
       order: 5;
       display: none;
       width: 100%;
       flex-direction: column;
   }
   
-  .header-wrapper.mobile-menu-open .auth-buttons {
+  .header-wrapper.mobile-menu-open .main-nav,
+  .header-wrapper.mobile-menu-open .auth-section {
       display: flex;
-  }
-  
-  .dropdown-menu {
-      position: static;
-      box-shadow: none;
-      display: none;
-      width: 100%;
-      background: transparent;
-  }
-  
-  .dropdown.active .dropdown-menu {
-      display: block;
   }
 }
 

@@ -1,3 +1,4 @@
+// ===== Mobile Menu Functionality =====
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtns = document.querySelectorAll('.mobile-menu-btn');
     
@@ -11,23 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const elementsToToggle = [
                 headerWrapper.querySelector('.main-nav'),
-                headerWrapper.querySelector('.auth-buttons')
+                headerWrapper.querySelector('.auth-section')
             ];
             
             elementsToToggle.forEach(element => {
                 if (element) {
                     element.style.display = this.classList.contains('active') ? 
-                        (element.classList.contains('auth-buttons') ? 'flex' : 'block') : 
+                        (element.classList.contains('auth-section') ? 'flex' : 'block') : 
                         'none';
                 }
             });
         });
     });
 
+    // ===== Smooth Scrolling =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            if (this.classList.contains('dropdown-item')) return;
-            
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenuBtn.closest('.header-wrapper').classList.remove('mobile-menu-open');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     
-                    document.querySelectorAll('.main-nav, .auth-buttons').forEach(el => {
+                    document.querySelectorAll('.main-nav, .auth-section').forEach(el => {
                         el.style.display = 'none';
                     });
                 }
@@ -52,8 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
   
+    // ===== Animate Elements on Scroll =====
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.hospital-card, .service-card, .doctor-card, .stat-card');
+        const elements = document.querySelectorAll('.hospital-card, .service-card, .stat-card');
         const windowHeight = window.innerHeight;
         
         elements.forEach(element => {
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
   
-    document.querySelectorAll('.hospital-card, .service-card, .doctor-card, .stat-card').forEach(element => {
+    document.querySelectorAll('.hospital-card, .service-card, .stat-card').forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = 'all 0.6s ease';
@@ -74,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
   
+    // ===== Animate Stats =====
     const statCards = document.querySelectorAll('.stat-card');
     if (statCards.length > 0) {
         const animateStats = () => {
@@ -112,30 +114,32 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(document.querySelector('.stats-section'));
     }
 
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            if (window.innerWidth > 992) {
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-        }, 250);
-    });
-
+    // ===== Modal Functionality =====
     const appointmentModal = document.getElementById('appointmentModal');
     const serviceModal = document.getElementById('serviceModal');
-    const bookAppointmentBtn = document.querySelector('a[href="#appointment"]');
-    const learnMoreBtns = document.querySelectorAll('.service-card .btn-outline');
+    const bookAppointmentBtn = document.getElementById('bookAppointmentBtn');
+    const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
     const modalCloses = document.querySelectorAll('.modal-close');
     const bookFromServiceBtn = document.getElementById('bookFromService');
+    
+    // Function to handle modal open
+    const openModal = (modal) => {
+        modal.classList.add('active');
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+    };
+    
+    // Function to handle modal close
+    const closeModal = (modal) => {
+        modal.classList.remove('active');
+        document.body.style.position = '';
+        document.body.style.width = '';
+    };
     
     if (bookAppointmentBtn) {
         bookAppointmentBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            appointmentModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModal(appointmentModal);
         });
     }
     
@@ -160,48 +164,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
             
-            serviceModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModal(serviceModal);
         });
     });
     
     modalCloses.forEach(btn => {
         btn.addEventListener('click', () => {
-            appointmentModal.classList.remove('active');
-            serviceModal.classList.remove('active');
-            document.body.style.overflow = '';
+            closeModal(appointmentModal);
+            closeModal(serviceModal);
         });
     });
     
     if (bookFromServiceBtn) {
         bookFromServiceBtn.addEventListener('click', () => {
-            serviceModal.classList.remove('active');
-            appointmentModal.classList.add('active');
+            closeModal(serviceModal);
+            openModal(appointmentModal);
         });
     }
     
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) {
-            e.target.classList.remove('active');
-            document.body.style.overflow = '';
+            closeModal(appointmentModal);
+            closeModal(serviceModal);
         }
     });
     
     document.querySelector('.appointment-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const hospital = document.getElementById('appointmentHospital').value;
+        const service = document.getElementById('appointmentService').value;
+        const specialty = document.getElementById('appointmentSpecialty').value;
+        const doctor = document.getElementById('appointmentDoctor').value;
         const date = document.getElementById('appointmentDate').value;
         const time = document.getElementById('appointmentTime').value;
         const reason = document.getElementById('appointmentReason').value;
         
-        alert(`Appointment booked successfully!\n\nHospital: ${hospital}\nDate: ${date}\nTime: ${time}\nReason: ${reason}`);
-        appointmentModal.classList.remove('active');
-        document.body.style.overflow = '';
+        alert(`Appointment booked successfully!\n\nHospital: ${hospital}\nService: ${service}\nSpecialty: ${specialty}\nDoctor: ${doctor || 'Not specified'}\nDate: ${date}\nTime: ${time}\nReason: ${reason}`);
+        closeModal(appointmentModal);
         e.target.reset();
     });
 });
 
-//login button functionality
+// ===== Login/Profile Button Functionality =====
 document.addEventListener('DOMContentLoaded', function () {
     const loginBtn = document.getElementById('loginBtn');
     const profileBtn = document.getElementById('profileBtn');
