@@ -28,7 +28,6 @@
                         <li><a href="https://www.facebook.com/rhaiza.alberto.5" class="nav-button">Contact</a></li>
                     </ul>
                 </nav>
-                <a href="#schedule" class="btn btn-accent">Schedule Visit</a>
                 <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
@@ -43,6 +42,16 @@
             <div class="hero-content">
                 <h1>Ciudad Medical Zamboanga</h1>
                 <p class="subtitle">Your trusted healthcare partner since 1982</p>
+                <div class="cta-buttons">
+                    <a href="#services" class="btn btn-primary btn-large">
+                        <span class="btn-icon">🔍</span>
+                        <span>Our Services</span>
+                    </a>
+                    <a href="#" class="btn btn-accent btn-large" id="bookAppointmentBtn">
+                        <span class="btn-icon">📅</span>
+                        <span>Book Appointment</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -66,7 +75,7 @@
                         <li>Orthodontics</li>
                         <li>Pediatric dentistry</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Book Dental Appointment</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="dental">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -80,7 +89,7 @@
                         <li>Microbiology</li>
                         <li>Pathology</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Schedule Lab Test</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="lab">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -94,7 +103,7 @@
                         <li>Compounding services</li>
                         <li>Free delivery within city</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Order Medications</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="pharmacy">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -108,7 +117,7 @@
                         <li>Asthma management</li>
                         <li>Nutrition counseling</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Schedule Visit</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="pediatrics">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -122,7 +131,7 @@
                         <li>Holter monitoring</li>
                         <li>Cardiac rehabilitation</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="cardiology">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -136,7 +145,7 @@
                         <li>Psoriasis management</li>
                         <li>Cosmetic procedures</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Book Appointment</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="dermatology">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -150,7 +159,7 @@
                         <li>Glaucoma treatment</li>
                         <li>LASIK consultations</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Schedule Exam</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="ophthalmology">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -164,7 +173,7 @@
                         <li>Chronic pain management</li>
                         <li>Stroke rehabilitation</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Book Session</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="physical-therapy">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -178,7 +187,7 @@
                         <li>Childbirth classes</li>
                         <li>Postpartum care</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Schedule Visit</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="maternity">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -192,7 +201,7 @@
                         <li>Sinus treatment</li>
                         <li>Allergy management</li>
                     </ul>
-                    <a href="#schedule" class="btn btn-primary">Book Consultation</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="ent">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -206,7 +215,7 @@
                         <li>Preventive care</li>
                         <li>Geriatric consultations</li>
                     </ul>
-                    <a href="#doctors" class="btn btn-primary">Meet Our Internists</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="internal-medicine">Learn More</a>
                 </div>
 
                 <div class="service-card">
@@ -220,7 +229,7 @@
                         <li>Counseling services</li>
                         <li>Stress management</li>
                     </ul>
-                    <a href="#doctors" class="btn btn-primary">View Specialists</a>
+                    <a href="#" class="btn btn-primary learn-more-btn" data-service="mental-health">Learn More</a>
                 </div>
             </div>
         </div>
@@ -240,7 +249,7 @@
                         <h3>Dr. Maria Santos</h3>
                         <p class="doctor-specialty">Cardiology</p>
                         <p class="doctor-bio">15+ years experience in interventional cardiology</p>
-                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                        <a href="#" class="btn btn-outline view-profile-btn" data-doctor="santos">View Profile</a>
                     </div>
                 </div>
                 
@@ -250,7 +259,7 @@
                         <h3>Dr. James Lim</h3>
                         <p class="doctor-specialty">Pediatrics</p>
                         <p class="doctor-bio">Specializes in childhood immunology</p>
-                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                        <a href="#" class="btn btn-outline view-profile-btn" data-doctor="lim">View Profile</a>
                     </div>
                 </div>
                 
@@ -260,7 +269,7 @@
                         <h3>Dr. Sofia Reyes</h3>
                         <p class="doctor-specialty">Dermatology</p>
                         <p class="doctor-bio">Cosmetic dermatology specialist</p>
-                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                        <a href="#" class="btn btn-outline view-profile-btn" data-doctor="reyes">View Profile</a>
                     </div>
                 </div>
                 
@@ -270,7 +279,7 @@
                         <h3>Dr. Roberto Cruz</h3>
                         <p class="doctor-specialty">ENT</p>
                         <p class="doctor-bio">Hearing restoration expert</p>
-                        <a href="#schedule" class="btn btn-outline">Schedule</a>
+                        <a href="#" class="btn btn-outline view-profile-btn" data-doctor="cruz">View Profile</a>
                     </div>
                 </div>
             </div>
@@ -280,10 +289,11 @@
     <section class="hospital-cta" style="background-color: var(--hospital-primary-light);">
         <div class="container">
             <h2>Ready to schedule your visit?</h2>
-            <a href="#schedule" class="btn btn-accent btn-large">Book Appointment Now</a>
+            <a href="#" class="btn btn-accent btn-large" id="ctaBookAppointmentBtn">Book Appointment Now</a>
         </div>
     </section>
 
+    <!-- Appointment Modal -->
     <div class="modal-overlay" id="appointmentModal">
         <div class="modal-container">
             <button class="modal-close">&times;</button>
@@ -339,6 +349,29 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Confirm Appointment</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Service Info Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <h3 id="serviceModalTitle">Service Details</h3>
+            <div id="serviceModalContent"></div>
+            <div class="modal-actions">
+                <button class="btn btn-accent" id="bookFromService">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctor Profile Modal -->
+    <div class="modal-overlay" id="doctorModal">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <div id="doctorModalContent"></div>
+            <div class="modal-actions">
+                <button class="btn btn-accent" id="bookFromDoctor">Book Consultation</button>
+            </div>
         </div>
     </div>
 

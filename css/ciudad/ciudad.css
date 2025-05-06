@@ -144,12 +144,44 @@ body {
   background-color: var(--hospital-primary-pale);
 }
 
+.btn-large {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
 .hospital-hero {
   padding: 120px 0;
   color: white;
   text-align: center;
   background-size: cover;
   background-position: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .hospital-services {
@@ -285,6 +317,7 @@ body {
   transition: var(--transition);
 }
 
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -311,12 +344,12 @@ body {
   border-radius: var(--border-radius-lg);
   width: 90%;
   max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
   padding: 30px;
   position: relative;
   transform: translateY(20px);
   transition: var(--transition);
-  max-height: 90vh;
-  overflow-y: auto;
 }
 
 .modal-overlay.active .modal-container {
@@ -336,6 +369,34 @@ body {
 
 .modal-close:hover {
   color: var(--text);
+}
+
+.modal-content {
+  padding: 20px 0;
+}
+
+.modal-content h3 {
+  color: var(--hospital-primary);
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.modal-content ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.modal-content li {
+  margin-bottom: 8px;
+}
+
+.modal-actions {
+  margin-top: 30px;
+  text-align: center;
 }
 
 .appointment-form .form-group {
@@ -369,15 +430,116 @@ body {
   box-shadow: 0 0 0 3px var(--hospital-primary-pale);
 }
 
+/* Service Modal Content */
+.service-detail-content {
+  padding: 20px 0;
+}
+
+.service-description {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.service-features h4,
+.service-faq h4 {
+  margin: 25px 0 15px;
+  color: var(--hospital-primary);
+}
+
+.service-features ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.service-features li {
+  margin-bottom: 10px;
+}
+
+.service-faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--hospital-primary-pale);
+  padding-bottom: 15px;
+}
+
+.service-faq-question {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* Doctor Modal Content */
+.doctor-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.doctor-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.doctor-image-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--hospital-primary-pale);
+}
+
+.doctor-name {
+  font-size: 1.8rem;
+  color: var(--hospital-primary);
+  margin-bottom: 5px;
+}
+
+.doctor-specialty-modal {
+  color: var(--hospital-accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.doctor-credentials {
+  margin-top: 20px;
+}
+
+.doctor-credentials h4 {
+  color: var(--hospital-primary);
+  margin-bottom: 10px;
+}
+
+.doctor-credentials ul {
+  padding-left: 20px;
+}
+
+.doctor-credentials li {
+  margin-bottom: 8px;
+}
+
+.doctor-bio-full {
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
 @media (max-width: 480px) {
   .modal-container {
       padding: 20px;
+  }
+  
+  .doctor-header {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .hospital-hero {
     padding: 80px 0;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2rem;
   }
   
   .logo-text {
@@ -411,10 +573,8 @@ body {
     display: flex;
   }
   
-  .btn-accent {
-    order: 4;
-    width: 100%;
-    text-align: center;
+  .cta-buttons {
+    flex-direction: column;
   }
 }
 
