@@ -115,7 +115,34 @@ button:hover {
 .back-button-container {
   margin-bottom: 20px;
 }
+.service-filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
 
+.service-filters select {
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  background-color: white;
+}
+.dataTables_wrapper {
+  margin-top: 20px;
+}
+
+.dataTables_filter input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.dataTables_length select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
 /* ✅ Responsiveness */
 @media (max-width: 768px) {
   .main {
