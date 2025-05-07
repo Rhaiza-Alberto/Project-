@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthConnect | Premium Healthcare Network</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preload" href="index.css" as="style">
+    <link rel="preload" href="index.js" as="script">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="premium-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-inner">
+                            <span>H</span>
+                            <span>C</span>
+                        </div>
+                    </div>
+                    <span class="logo-text">HealthConnect</span>
+                </a>
+                
+                <!-- Main Navigation -->
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#hospitals" class="nav-button">
+                            <div class="button-content">
+                                <span class="nav-icon">🏥</span>
+                                <span class="nav-text">Hospitals</span>
+                            </div>
+                        </a></li>
+                        <li><a href="#services" class="nav-button">
+                            <div class="button-content">
+                                <span class="nav-icon">🩺</span>
+                                <span class="nav-text">Services</span>
+                            </div>
+                        </a></li>
+                        <li><a href="pages/about/about.html" class="nav-button">
+                            <div class="button-content">
+                                <span class="nav-icon">ℹ️</span>
+                                <span class="nav-text">About</span>
+                            </div>
+                        </a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Auth Buttons -->
+                <div class="auth-section">
+                    <a href="./pages/patient/profile.html" class="btn btn-login" id="profileBtn" style="display: none;">
+                        <span class="btn-icon">📅</span>
+                        <span>Profile</span>
+                    </a>
+                    
+                    <a href="pages/call-to-action/patient-signup.html" class="btn btn-primary">
+                        <span class="btn-icon">✚</span>
+                        <span>Register</span>
+                    </a>
+                </div>
+
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('assets/images/landing-page/hero-bg.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Exceptional Healthcare <span>in Zamboanga City</span></h1>
+                <p class="subtitle">Connecting you to the region's finest medical professionals and state-of-the-art facilities</p>
+                <div class="cta-buttons">
+                    <a href="#hospitals" class="btn btn-primary btn-large">
+                        <span class="btn-icon">🔍</span>
+                        <span>Find Hospitals</span>
+                    </a>
+                    <a href="#appointment" class="btn btn-accent btn-large" id="bookAppointmentBtn">
+                        <span class="btn-icon">📅</span>
+                        <span>Book Appointment</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hospitals Section -->
+    <section id="hospitals" class="section hospitals">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Partner Hospitals</h2>
+                <p class="section-subtitle">Premium healthcare facilities across Zamboanga</p>
+            </div>
+            
+            <div class="hospital-grid">
+                <div class="hospital-card">
+                    <div class="card-badge">PREMIUM FACILITY</div>
+                    <div class="hospital-image">
+                        <img src="assets\images\landing-page\westmetro.jpg" alt="West Metro Medical Center">
+                    </div>
+                    <div class="hospital-info">
+                        <h3>West Metro Medical Center</h3>
+                        <div class="hospital-meta">
+                            <span class="rating">★★★★☆ 4.7</span>
+                            <span class="distance">2.3 km away</span>
+                        </div>
+                        <div class="services">
+                            <span>🏥 Emergency</span>
+                            <span>👶 Pediatrics</span>
+                            <span>❤️ Cardiology</span>
+                            <span>🧠 Neurology</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="pages\westmetro\westmetro.html" class="btn btn-primary">
+                                <span class="btn-icon">🏥</span>
+                                <span>View Hospital</span>
+                            </a>
+                            <a href="https://www.google.com/maps?rlz=1C1VDKB_enPH1144PH1144&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEINTYxNmowajGoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&geocode=KWNsSbT0QVAyMerHhLzcQ1aZ&daddr=Veterans+Ave+Ext.,+Extension,+Zamboanga,+7000+Zamboanga+del+Sur" class="btn btn-outline">
+                                <span class="btn-icon">📍</span>
+                                <span>Directions</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hospital-card">
+                    <div class="card-badge">TOP RATED</div>
+                    <div class="hospital-image">
+                        <img src="assets\images\landing-page\ciudad.jpg" alt="Ciudad Medical Zamboanga">
+                    </div>
+                    <div class="hospital-info">
+                        <h3>Ciudad Medical Zamboanga</h3>
+                        <div class="hospital-meta">
+                            <span class="rating">★★★★★ 4.9</span>
+                            <span class="distance">3.1 km away</span>
+                        </div>
+                        <div class="services">
+                            <span>🦷 Dental</span>
+                            <span>🔬 Laboratory</span>
+                            <span>💊 Pharmacy</span>
+                            <span>👁️ Ophthalmology</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="pages\ciudad\ciudad.html" class="btn btn-primary">
+                                <span class="btn-icon">🏥</span>
+                                <span>View Hospital</span>
+                            </a>
+                            <a href="https://www.google.com/maps?sca_esv=2d77d5a7ae89fe5c&rlz=1C1VDKB_enPH1144PH1144&sxsrf=AHTn8zpLLq7kBtNpYXEgbDo-KHubyRm9wA:1745221650271&gs_lp=Egxnd3Mtd2l6LXNlcnAaAhgCIhxnb29nbGUgbWFwcyBjaXVkYWQgbWVkaWNhbCB6KgIIADIFECEYoAEyBRAhGKABMgUQIRifBTIFECEYnwUyBRAhGJ8FMgUQIRifBTIFECEYnwUyBRAhGJ8FMgUQIRifBTIFECEYnwVIzBtQ0AFYuxVwAXgAkAEAmAGzAaABuhSqAQQwLjE3uAEDyAEA-AEBmAIRoAKXFcICDhAAGIAEGLADGIYDGIoFwgILEAAYgAQYsAMYogTCAgsQABiABBiRAhiKBcICBRAAGIAEwgIIEAAYgAQYiwPCAgoQABiABBgUGIcCwgIGEAAYFhgewgIIEAAYFhgKGB7CAgQQIRgVmAMA4gMFEgExIECIBgGQBgeSBwYxLjE1LjGgB7qRAbIHBjAuMTUuMbgH8hQ&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&geocode=KeECr7zwQVAyMf3EqdvGRnAO&daddr=Mayor,+Vitaliano+Agan+Ave,+Zamboanga,+7000+Zamboanga+del+Sur" class="btn btn-outline">
+                                <span class="btn-icon">📍</span>
+                                <span>Directions</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Healthcare Services</h2>
+                <p class="section-subtitle">Comprehensive medical services tailored to your needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👨‍⚕️</div>
+                    <h3>Doctor Consultations</h3>
+                    <p>Schedule appointments with specialists across 15+ medical disciplines</p>
+                    <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency services with priority access at partner hospitals</p>
+                    <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Pharmacy Services</h3>
+                    <p>Prescription fulfillment and medication management solutions</p>
+                    <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>Diagnostic Tests</h3>
+                    <p>Advanced laboratory and imaging services with quick results</p>
+                    <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Medical Specialties</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Qualified Doctors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Emergency Care</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to experience premium healthcare?</h2>
+                <p>Join thousands of satisfied patients in Zamboanga City</p>
+                <div class="cta-buttons">
+                    <a href="pages/call-to-action/patient-signup.html" class="btn btn-primary btn-large">
+                        <span class="btn-icon">✚</span>
+                        <span>Create Account</span>
+                    </a>
+                    <a href="https://www.facebook.com/rhaiza.alberto.5" class="btn btn-accent btn-large">
+                        <span class="btn-icon">📞</span>
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <div class="logo-inner">
+                                <span>H</span>
+                                <span>C</span>
+                            </div>
+                        </div>
+                        <span class="logo-text">HealthConnect</span>
+                    </div>
+                    <p>Zamboanga's premier healthcare network connecting patients to exceptional medical care.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/rhaiza.alberto.5" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#hospitals">Hospitals</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="pages/about/about.html">About Us</a></li>
+                        <li><a href="https://www.facebook.com/rhaiza.alberto.5">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Hospitals</h3>
+                    <ul>
+                        <li><a href="pages/westmetro/westmetro.html">West Metro Medical</a></li>
+                        <li><a href="pages/ciudad/ciudad.html">Ciudad Medical</a></li>
+                        <li><a href="#">Zamboanga General</a></li>
+                        <li><a href="#">View All</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col footer-contact">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>123 Medical Building, Zamboanga City</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>(012) 345-HEAL (6789)</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>contact@healthconnect.ph</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 HealthConnect. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appointment Modal -->
+    <div class="modal-overlay" id="appointmentModal">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <h3>Book Appointment</h3>
+            <form class="appointment-form">
+                <div class="form-group">
+                    <label for="appointmentHospital">Hospital</label>
+                    <select id="appointmentHospital" required>
+                        <option value="">Select Hospital</option>
+                        <option value="westmetro">West Metro Medical Center</option>
+                        <option value="ciudad">Ciudad Medical Zamboanga</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentService">Service</label>
+                    <select id="appointmentService" required>
+                        <option value="">Select Service</option>
+                        <option value="consultation">Doctor Consultation</option>
+                        <option value="emergency">Emergency Care</option>
+                        <option value="pharmacy">Pharmacy Services</option>
+                        <option value="diagnostic">Diagnostic Tests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentSpecialty">Specialty</label>
+                    <select id="appointmentSpecialty" required>
+                        <option value="">Select Specialty</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="ophthalmology">Ophthalmology</option>
+                        <option value="general">General Medicine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDoctor">Preferred Doctor (Optional)</label>
+                    <input type="text" id="appointmentDoctor" placeholder="Doctor's name">
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Time</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentReason">Reason for Visit</label>
+                    <textarea id="appointmentReason" rows="3" required placeholder="Briefly describe your symptoms or reason for visit"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Appointment</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <h3 id="serviceModalTitle">Service Details</h3>
+            <div id="serviceModalContent"></div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="bookFromService">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
