@@ -1,479 +1,649 @@
-let services = [
-    {
-        id: 1,
-        name: "Emergency Care",
-        icon: "🏥",
-        details: [
-            "24/7 emergency department",
-            "Board-certified ER physicians",
-            "Level III trauma center",
-            "Average wait time: <15 minutes"
-        ]
-    },
-    {
-        id: 2,
-        name: "Cardiology",
-        icon: "❤️",
-        details: [
-            "Cardiac catheterization",
-            "Echocardiography",
-            "Stress testing",
-            "Pacemaker implants"
-        ]
-    },
-    {
-        id: 3,
-        name: "Pediatrics",
-        icon: "👶",
-        details: [
-            "Well-child visits",
-            "Vaccinations",
-            "Asthma management",
-            "Nutrition counseling"
-        ]
-    },
-    {
-        id: 4,
-        name: "Neurology",
-        icon: "🧠",
-        details: [
-            "EEG testing",
-            "Stroke treatment",
-            "Migraine management",
-            "Epilepsy care"
-        ]
-    },
-    {
-        id: 5,
-        name: "Orthopedics",
-        icon: "🦴",
-        details: [
-            "Joint replacement",
-            "Sports medicine",
-            "Fracture care",
-            "Arthroscopic surgery"
-        ]
-    },
-    {
-        id: 6,
-        name: "Oncology",
-        icon: "🦋",
-        details: [
-            "Chemotherapy",
-            "Radiation therapy",
-            "Cancer screening",
-            "Supportive care"
-        ]
-    },
-    {
-        id: 7,
-        name: "Gastroenterology",
-        icon: "🧫",
-        details: [
-            "Colonoscopy",
-            "Endoscopy",
-            "IBD treatment",
-            "Liver disease management"
-        ]
-    },
-    {
-        id: 8,
-        name: "Pulmonology",
-        icon: "🫁",
-        details: [
-            "Asthma treatment",
-            "COPD management",
-            "Sleep studies",
-            "Bronchoscopy"
-        ]
-    },
-    {
-        id: 9,
-        name: "Radiology",
-        icon: "📷",
-        details: [
-            "MRI scans",
-            "CT scans",
-            "X-rays",
-            "Ultrasound"
-        ]
-    },
-    {
-        id: 10,
-        name: "General Surgery",
-        icon: "🔪",
-        details: [
-            "Appendectomy",
-            "Gallbladder removal",
-            "Hernia repair",
-            "Minimally invasive procedures"
-        ]
-    },
-    {
-        id: 11,
-        name: "Nephrology",
-        icon: "🩸",
-        details: [
-            "Dialysis services",
-            "Kidney transplant",
-            "Hypertension care",
-            "Electrolyte management"
-        ]
-    },
-    {
-        id: 12,
-        name: "Rheumatology",
-        icon: "🦵",
-        details: [
-            "Arthritis treatment",
-            "Lupus management",
-            "Joint injections",
-            "Autoimmune care"
-        ]
-    },
-];
+        // Data storage (in a real app, this would be from a database)
+        let services = JSON.parse(localStorage.getItem('services')) || [
+            {
+                id: 'SRV001',
+                name: 'Emergency Care',
+                department: 'Emergency Medicine',
+                doctorId: 'DOC001',
+                availability: '24/7',
+                status: 'Active'
+            },
+            {
+                id: 'SRV002',
+                name: 'Cardiac Catheterization',
+                department: 'Cardiology',
+                doctorId: 'DOC002',
+                availability: 'Mon-Fri, 8AM-5PM',
+                status: 'Active'
+            },
+            {
+                id: 'SRV003',
+                name: 'Well-child Visits',
+                department: 'Pediatrics',
+                doctorId: 'DOC003',
+                availability: 'Mon-Sat, 9AM-4PM',
+                status: 'Active'
+            }
+        ];
 
-let doctors = [
-    {
-        id: 1,
-        name: "Dr. Elena Vasquez",
-        specialty: "Emergency Medicine",
-        bio: "Trauma specialist with 12 years experience",
-        image: "../../assets/images/westmetro/doctor1.jpg"
-    },
-    {
-        id: 2,
-        name: "Dr. Michael Chen",
-        specialty: "Cardiology",
-        bio: "Interventional cardiologist",
-        image: "../../assets/images/westmetro/doctor2.jpg"
-    },
-    {
-        id: 3,
-        name: "Dr. Sarah Johnson",
-        specialty: "Oncology",
-        bio: "Breast cancer specialist",
-        image: "../../assets/images/westmetro/doctor3.jpg"
-    },
-    {
-        id: 4,
-        name: "Dr. Thomas Wright",
-        specialty: "Pulmonology",
-        bio: "Sleep disorder expert",
-        image: "../../assets/images/westmetro/doctor3.jpg"
-    }
+        let doctors = JSON.parse(localStorage.getItem('doctors')) || [
+            {
+                id: 'DOC001',
+                name: 'Dr. Elena Vasquez',
+                specialty: 'Emergency Medicine',
+                department: 'Emergency',
+                schedule: '24/7 Shifts',
+                status: 'Active'
+            },
+            {
+                id: 'DOC002',
+                name: 'Dr. Michael Chen',
+                specialty: 'Cardiology',
+                department: 'Cardiology',
+                schedule: 'Mon-Wed, 8AM-4PM',
+                status: 'Active'
+            },
+            {
+                id: 'DOC003',
+                name: 'Dr. Sarah Johnson',
+                specialty: 'Pediatrics',
+                department: 'Pediatrics',
+                schedule: 'Tue-Thu, 9AM-5PM',
+                status: 'Active'
+            }
+        ];
 
-];
+        let appointments = JSON.parse(localStorage.getItem('appointments')) || [
+            {
+                id: 'APT001',
+                patientName: 'John Smith',
+                serviceId: 'SRV002',
+                doctorId: 'DOC002',
+                date: '2023-11-15',
+                time: '10:00',
+                status: 'Pending'
+            },
+            {
+                id: 'APT002',
+                patientName: 'Maria Garcia',
+                serviceId: 'SRV003',
+                doctorId: 'DOC003',
+                date: '2023-11-16',
+                time: '14:30',
+                status: 'Completed'
+            }
+        ];
 
-// Variables to track which service/doctor is being edited/deleted
-let currentServiceId = null;
-let currentDoctorId = null;
+        // Current service for doctor assignment
+        let currentServiceForAssignment = null;
 
-// DOM elements
-const servicesContainer = document.getElementById('services-container');
-const doctorsContainer = document.getElementById('doctors-container');
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAllTables();
+            renderBookingOptions();
+            
+            // Add event listeners for add buttons
+            document.getElementById('addServiceBtn').addEventListener('click', function() {
+                openServiceModal();
+            });
+            
+            document.getElementById('addDoctorBtn').addEventListener('click', function() {
+                openDoctorModal();
+            });
+            
+            document.getElementById('addAppointmentBtn').addEventListener('click', function() {
+                openAppointmentModal();
+            });
+            
+            // Form submissions
+            document.getElementById('serviceForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveService();
+            });
+            
+            document.getElementById('doctorForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveDoctor();
+            });
+            
+            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveAppointment();
+            });
+            
+            document.getElementById('patientBookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                bookAppointment();
+            });
+        });
 
-// Initialize the app
-document.addEventListener('DOMContentLoaded', function() {
-    renderServices();
-    renderDoctors();
-    setupEventListeners();
-});
+        // Render all tables
+        function renderAllTables() {
+            renderServicesTable();
+            renderDoctorsTable();
+            renderAppointmentsTable();
+        }
 
-// Render all services
-function renderServices() {
-    servicesContainer.innerHTML = '';
-    services.forEach(service => {
-        const serviceCard = createServiceCard(service);
-        servicesContainer.appendChild(serviceCard);
-    });
-}
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('services', JSON.stringify(services));
+            localStorage.setItem('doctors', JSON.stringify(doctors));
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+        }
 
-// Create a service card element
-function createServiceCard(service) {
-    const card = document.createElement('div');
-    card.className = `service-card ${service.active ? '' : 'inactive'}`;
-    card.dataset.id = service.id;
-    
-    const detailsList = service.details.map(detail => `<li>${detail}</li>`).join('');
-    
-    card.innerHTML = `
-        <div class="service-header">
-            <div class="service-icon">${service.icon}</div>
-            <h3>${service.name}</h3>
-            <span class="status-badge">${service.active ? 'Active' : 'Inactive'}</span>
-        </div>
-        <ul class="service-details">
-            ${detailsList}
-        </ul>
-        <a href="#schedule" class="btn btn-primary">Book Consultation</a>
-        <button class="toggle-service-btn" onclick="toggleService(${service.id})">
-            ${service.active ? 'Deactivate' : 'Activate'}
-        </button>
-        <button class="edit-service-btn" onclick="openEditServiceModal(${service.id})">Edit</button>
-        <button class="remove-service-btn" onclick="openDeleteServiceModal(${service.id})">Remove</button>
-    `;
-    
-    return card;
-}
-
-// Render all doctors
-function renderDoctors() {
-    doctorsContainer.innerHTML = '';
-    doctors.forEach(doctor => {
-        const doctorCard = createDoctorCard(doctor);
-        doctorsContainer.appendChild(doctorCard);
-    });
-}
-
-// Create a doctor card element
-function createDoctorCard(doctor) {
-    const card = document.createElement('div');
-    card.className = 'doctor-card';
-    card.dataset.id = doctor.id;
-    
-    card.innerHTML = `
-        <div class="doctor-image" style="background-image: url('${doctor.image}');"></div>
-        <div class="doctor-info">
-            <h3>${doctor.name}</h3>
-            <p class="doctor-specialty">${doctor.specialty}</p>
-            <p class="doctor-bio">${doctor.bio}</p>
-            <a href="#schedule" class="btn btn-outline">Schedule</a>
-        </div>
-        <button class="edit-btn" onclick="openEditDoctorModal(${doctor.id})">Edit</button>
-        <button class="remove-btn" onclick="openDeleteDoctorModal(${doctor.id})">Remove</button>
-    `;
-    
-    return card;
-}
-
-// Setup event listeners for forms
-function setupEventListeners() {
-    // Add service form
-    document.getElementById('addServiceForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        addService();
-    });
-    
-    // Edit service form
-    document.getElementById('editServiceForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        updateService();
-    });
-    
-    // Confirm service delete
-    document.getElementById('confirm-service-delete').addEventListener('click', function() {
-        deleteService();
-    });
-    
-    // Add doctor form
-    document.getElementById('addDoctorForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        addDoctor();
-    });
-    
-    // Edit doctor form
-    document.getElementById('editDoctorForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        updateDoctor();
-    });
-    
-    // Confirm doctor delete
-    document.getElementById('confirm-doctor-delete').addEventListener('click', function() {
-        deleteDoctor();
-    });
-}
-
-// Tab navigation
-function openTab(tabId) {
-    // Hide all tabs
-    document.querySelectorAll('.admin-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // Deactivate all tab buttons
-    document.querySelectorAll('.tab-button').forEach(button => {
-        button.classList.remove('active');
-    });
-    
-    // Show the selected tab
-    document.getElementById(tabId).classList.add('active');
-    
-    // Activate the clicked button
-    event.currentTarget.classList.add('active');
-}
-
-// Modal functions
-function openAddServiceModal() {
-    document.getElementById('addServiceModal').style.display = 'flex';
-}
-
-function openEditServiceModal(id) {
-    currentServiceId = id;
-    const service = services.find(s => s.id === id);
-    
-    if (service) {
-        document.getElementById('edit-service-id').value = service.id;
-        document.getElementById('edit-service-name').value = service.name;
-        document.getElementById('edit-service-icon').value = service.icon;
-        document.getElementById('edit-service-details').value = service.details.join('\n');
+        // Tab switching function
+        function showSection(sectionId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Activate the clicked tab button
+            document.querySelector(`.tab-btn[data-tab="${sectionId}"]`).classList.add('active');
+        }
         
-        document.getElementById('editServiceModal').style.display = 'flex';
-    }
-}
-
-function openDeleteServiceModal(id) {
-    currentServiceId = id;
-    document.getElementById('deleteServiceModal').style.display = 'flex';
-}
-
-function openAddDoctorModal() {
-    document.getElementById('addDoctorModal').style.display = 'flex';
-}
-
-function openEditDoctorModal(id) {
-    currentDoctorId = id;
-    const doctor = doctors.find(d => d.id === id);
-    
-    if (doctor) {
-        document.getElementById('edit-doctor-id').value = doctor.id;
-        document.getElementById('edit-doctor-name').value = doctor.name;
-        document.getElementById('edit-doctor-specialty').value = doctor.specialty;
-        document.getElementById('edit-doctor-bio').value = doctor.bio;
-        document.getElementById('edit-doctor-image').value = doctor.image;
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.main-nav');
+            const btn = document.querySelector('.mobile-menu-btn');
+            
+            menu.classList.toggle('active');
+            btn.setAttribute('aria-expanded', menu.classList.contains('active'));
+        }
         
-        document.getElementById('editDoctorModal').style.display = 'flex';
-    }
-}
-
-function openDeleteDoctorModal(id) {
-    currentDoctorId = id;
-    document.getElementById('deleteDoctorModal').style.display = 'flex';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
-function toggleService(id) {
-    const serviceIndex = services.findIndex(s => s.id === id);
-    if (serviceIndex !== -1) {
-        services[serviceIndex].active = !services[serviceIndex].active;
-        renderServices();
-    }
-}
-// CRUD operations for services
-function addService() {
-    const name = document.getElementById('service-name').value;
-    const icon = document.getElementById('service-icon').value;
-    const details = document.getElementById('service-details').value.split('\n');
-    
-    const newService = {
-        id: services.length > 0 ? Math.max(...services.map(s => s.id)) + 1 : 1,
-        name,
-        icon,
-        details,
-        active: true // Default to active when adding new service
-    };
-    
-    services.push(newService);
-    renderServices();
-    closeModal('addServiceModal');
-    
-    // Reset form
-    document.getElementById('addServiceForm').reset();
-}
-
-function updateService() {
-    const id = parseInt(document.getElementById('edit-service-id').value);
-    const name = document.getElementById('edit-service-name').value;
-    const icon = document.getElementById('edit-service-icon').value;
-    const details = document.getElementById('edit-service-details').value.split('\n');
-    
-    const serviceIndex = services.findIndex(s => s.id === id);
-    
-    if (serviceIndex !== -1) {
-        services[serviceIndex] = {
-            id,
-            name,
-            icon,
-            details,
-            active: services[serviceIndex].active // Preserve the active status
-        };
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
         
-        renderServices();
-        closeModal('editServiceModal');
-    }
-}
-
-function deleteService() {
-    services = services.filter(s => s.id !== currentServiceId);
-    renderServices();
-    closeModal('deleteServiceModal');
-    currentServiceId = null;
-}
-
-// CRUD operations for doctors
-function addDoctor() {
-    const name = document.getElementById('doctor-name').value;
-    const specialty = document.getElementById('doctor-specialty').value;
-    const bio = document.getElementById('doctor-bio').value;
-    const image = document.getElementById('doctor-image').value;
-    
-    const newDoctor = {
-        id: doctors.length > 0 ? Math.max(...doctors.map(d => d.id)) + 1 : 1,
-        name,
-        specialty,
-        bio,
-        image
-    };
-    
-    doctors.push(newDoctor);
-    renderDoctors();
-    closeModal('addDoctorModal');
-    
-    // Reset form
-    document.getElementById('addDoctorForm').reset();
-}
-
-function updateDoctor() {
-    const id = parseInt(document.getElementById('edit-doctor-id').value);
-    const name = document.getElementById('edit-doctor-name').value;
-    const specialty = document.getElementById('edit-doctor-specialty').value;
-    const bio = document.getElementById('edit-doctor-bio').value;
-    const image = document.getElementById('edit-doctor-image').value;
-    
-    const doctorIndex = doctors.findIndex(d => d.id === id);
-    
-    if (doctorIndex !== -1) {
-        doctors[doctorIndex] = {
-            id,
-            name,
-            specialty,
-            bio,
-            image
-        };
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
         
-        renderDoctors();
-        closeModal('editDoctorModal');
-    }
-}
-
-function deleteDoctor() {
-    doctors = doctors.filter(d => d.id !== currentDoctorId);
-    renderDoctors();
-    closeModal('deleteDoctorModal');
-    currentDoctorId = null;
-}
-document.head.appendChild(style);
-
-// Expose functions to global scope for HTML onclick attributes
-window.openTab = openTab;
-window.openAddServiceModal = openAddServiceModal;
-window.openEditServiceModal = openEditServiceModal;
-window.openDeleteServiceModal = openDeleteServiceModal;
-window.openAddDoctorModal = openAddDoctorModal;
-window.openEditDoctorModal = openEditDoctorModal;
-window.openDeleteDoctorModal = openDeleteDoctorModal;
-window.toggleService = toggleService;
-window.closeModal = closeModal;
+        // Service functions
+        function renderServicesTable() {
+            const tbody = document.getElementById('servicesTableBody');
+            tbody.innerHTML = '';
+            
+            services.forEach(service => {
+                const doctor = doctors.find(d => d.id === service.doctorId);
+                const doctorName = doctor ? doctor.name : 'Unassigned';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${service.id}</td>
+                    <td>${service.name}</td>
+                    <td>${service.department}</td>
+                    <td>
+                        <div class="doctor-assignment">
+                            <span>${doctorName}</span>
+                            <button class="assign-btn" onclick="assignDoctor('${service.id}')">Change</button>
+                        </div>
+                    </td>
+                    <td>${service.availability}</td>
+                    <td><span class="status-${service.status.toLowerCase()}">${service.status}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="edit-btn" onclick="editService('${service.id}')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="delete-btn" onclick="deleteService('${service.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function openServiceModal(serviceId = null) {
+            const modal = document.getElementById('serviceModal');
+            const form = document.getElementById('serviceForm');
+            const title = document.getElementById('serviceModalTitle');
+            const doctorSelect = document.getElementById('serviceDoctor');
+            
+            // Populate doctor dropdown
+            doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
+            doctors.forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = doctor.id;
+                option.textContent = `${doctor.name} (${doctor.specialty})`;
+                doctorSelect.appendChild(option);
+            });
+            
+            if (serviceId) {
+                // Edit mode
+                title.textContent = 'Edit Service';
+                const service = services.find(s => s.id === serviceId);
+                
+                document.getElementById('serviceId').value = service.id;
+                document.getElementById('serviceName').value = service.name;
+                document.getElementById('serviceDepartment').value = service.department;
+                document.getElementById('serviceDoctor').value = service.doctorId || '';
+                document.getElementById('serviceAvailability').value = service.availability;
+                document.getElementById('serviceStatus').value = service.status;
+                document.getElementById('serviceInfo').value = service.Info;
+            } else {
+                // Add mode
+                title.textContent = 'Add New Service';
+                form.reset();
+                document.getElementById('serviceId').value = '';
+            }
+            
+            openModal('serviceModal');
+        }
+        
+        function editService(serviceId) {
+            openServiceModal(serviceId);
+        }
+        
+        function saveService() {
+            const form = document.getElementById('serviceForm');
+            const serviceId = document.getElementById('serviceId').value;
+            const serviceData = {
+                name: document.getElementById('serviceName').value,
+                department: document.getElementById('serviceDepartment').value,
+                doctorId: document.getElementById('serviceDoctor').value || null,
+                availability: document.getElementById('serviceAvailability').value,
+                status: document.getElementById('serviceStatus').value,
+                info: document.getElementById('serviceInfo').value
+            };
+            
+            if (serviceId) {
+                // Update existing service
+                const index = services.findIndex(s => s.id === serviceId);
+                services[index] = { ...services[index], ...serviceData };
+            } else {
+                // Add new service
+                const newId = 'SRV' + String(services.length + 1).padStart(3, '0');
+                services.push({ id: newId, ...serviceData });
+            }
+            
+            saveData();
+            renderAllTables();
+            renderBookingOptions();
+            closeModal('serviceModal');
+            alert('Service saved successfully!');
+        }
+        
+        function deleteService(serviceId) {
+            if (confirm(`Are you sure you want to delete service ${serviceId}?`)) {
+                // Check if service has appointments
+                const serviceAppointments = appointments.filter(a => a.serviceId === serviceId);
+                
+                if (serviceAppointments.length > 0) {
+                    alert(`Cannot delete service ${serviceId} because it has ${serviceAppointments.length} appointment(s). Please delete those appointments first.`);
+                    return;
+                }
+                
+                services = services.filter(s => s.id !== serviceId);
+                saveData();
+                renderAllTables();
+                renderBookingOptions();
+                alert(`Service ${serviceId} deleted successfully.`);
+            }
+        }
+        
+        function assignDoctor(serviceId) {
+            currentServiceForAssignment = serviceId;
+            const select = document.getElementById('doctorAssignmentSelect');
+            select.innerHTML = '<option value="">Select Doctor</option>';
+            
+            doctors.forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = doctor.id;
+                option.textContent = `${doctor.name} (${doctor.specialty})`;
+                select.appendChild(option);
+            });
+            
+            const service = services.find(s => s.id === serviceId);
+            if (service.doctorId) {
+                select.value = service.doctorId;
+            }
+            
+            openModal('assignDoctorModal');
+        }
+        
+        function saveDoctorAssignment() {
+            const select = document.getElementById('doctorAssignmentSelect');
+            const doctorId = select.value || null;
+            
+            if (currentServiceForAssignment) {
+                const service = services.find(s => s.id === currentServiceForAssignment);
+                service.doctorId = doctorId;
+                saveData();
+                renderAllTables();
+                renderBookingOptions();
+                closeModal('assignDoctorModal');
+                alert('Doctor assignment updated!');
+            }
+        }
+        
+        // Doctor functions
+        function renderDoctorsTable() {
+            const tbody = document.getElementById('doctorsTableBody');
+            tbody.innerHTML = '';
+            
+            doctors.forEach(doctor => {
+                // Find services assigned to this doctor
+                const assignedServices = services.filter(s => s.doctorId === doctor.id)
+                    .map(s => s.name).join(', ');
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${doctor.id}</td>
+                    <td>${doctor.name}</td>
+                    <td>${doctor.specialty}</td>
+                    <td>${doctor.department}</td>
+                    <td>${assignedServices || 'None'}</td>
+                    <td>${doctor.schedule}</td>
+                    <td><span class="status-${doctor.status.toLowerCase()}">${doctor.status}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="edit-btn" onclick="editDoctor('${doctor.id}')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="delete-btn" onclick="deleteDoctor('${doctor.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function openDoctorModal(doctorId = null) {
+            const modal = document.getElementById('doctorModal');
+            const form = document.getElementById('doctorForm');
+            const title = document.getElementById('doctorModalTitle');
+            
+            if (doctorId) {
+                // Edit mode
+                title.textContent = 'Edit Doctor';
+                const doctor = doctors.find(d => d.id === doctorId);
+                
+                document.getElementById('doctorId').value = doctor.id;
+                document.getElementById('doctorName').value = doctor.name;
+                document.getElementById('doctorSpecialty').value = doctor.specialty;
+                document.getElementById('doctorDepartment').value = doctor.department;
+                document.getElementById('doctorSchedule').value = doctor.schedule;
+                document.getElementById('doctorStatus').value = doctor.status;
+            } else {
+                // Add mode
+                title.textContent = 'Add New Doctor';
+                form.reset();
+                document.getElementById('doctorId').value = '';
+            }
+            
+            openModal('doctorModal');
+        }
+        
+        function editDoctor(doctorId) {
+            openDoctorModal(doctorId);
+        }
+        
+        function saveDoctor() {
+            const form = document.getElementById('doctorForm');
+            const doctorId = document.getElementById('doctorId').value;
+            const doctorData = {
+                name: document.getElementById('doctorName').value,
+                specialty: document.getElementById('doctorSpecialty').value,
+                department: document.getElementById('doctorDepartment').value,
+                schedule: document.getElementById('doctorSchedule').value,
+                status: document.getElementById('doctorStatus').value
+            };
+            
+            if (doctorId) {
+                // Update existing doctor
+                const index = doctors.findIndex(d => d.id === doctorId);
+                doctors[index] = { ...doctors[index], ...doctorData };
+            } else {
+                // Add new doctor
+                const newId = 'DOC' + String(doctors.length + 1).padStart(3, '0');
+                doctors.push({ id: newId, ...doctorData });
+            }
+            
+            saveData();
+            renderAllTables();
+            renderBookingOptions();
+            closeModal('doctorModal');
+            alert('Doctor saved successfully!');
+        }
+        
+        function deleteDoctor(doctorId) {
+            // Check if doctor is assigned to any services
+            const assignedServices = services.filter(s => s.doctorId === doctorId);
+            
+            if (assignedServices.length > 0) {
+                alert(`Cannot delete doctor ${doctorId} because they are assigned to ${assignedServices.length} service(s). Please reassign those services first.`);
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to delete doctor ${doctorId}?`)) {
+                doctors = doctors.filter(d => d.id !== doctorId);
+                saveData();
+                renderAllTables();
+                renderBookingOptions();
+                alert(`Doctor ${doctorId} deleted successfully.`);
+            }
+        }
+        
+        // Appointment functions
+        function renderAppointmentsTable() {
+            const tbody = document.getElementById('appointmentsTableBody');
+            tbody.innerHTML = '';
+            
+            appointments.forEach(appointment => {
+                const service = services.find(s => s.id === appointment.serviceId);
+                const doctor = doctors.find(d => d.id === appointment.doctorId);
+                
+                const serviceName = service ? service.name : 'Unknown Service';
+                const doctorName = doctor ? doctor.name : 'Unknown Doctor';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${appointment.id}</td>
+                    <td>${appointment.patientName}</td>
+                    <td>${serviceName}</td>
+                    <td>${doctorName}</td>
+                    <td>${appointment.date} ${appointment.time}</td>
+                    <td><span class="status-${appointment.status.toLowerCase()}">${appointment.status}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="edit-btn" onclick="editAppointment('${appointment.id}')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="delete-btn" onclick="deleteAppointment('${appointment.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function openAppointmentModal(appointmentId = null) {
+            const modal = document.getElementById('appointmentModal');
+            const form = document.getElementById('appointmentForm');
+            const title = document.getElementById('appointmentModalTitle');
+            const serviceSelect = document.getElementById('appointmentService');
+            const doctorSelect = document.getElementById('appointmentDoctor');
+            
+            // Populate service dropdown
+            serviceSelect.innerHTML = '<option value="">Select Service</option>';
+            services.forEach(service => {
+                const option = document.createElement('option');
+                option.value = service.id;
+                option.textContent = `${service.name} (${service.department})`;
+                serviceSelect.appendChild(option);
+            });
+            
+            // Populate doctor dropdown
+            doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
+            doctors.forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = doctor.id;
+                option.textContent = `${doctor.name} (${doctor.specialty})`;
+                doctorSelect.appendChild(option);
+            });
+            
+            if (appointmentId) {
+                // Edit mode
+                title.textContent = 'Edit Appointment';
+                const appointment = appointments.find(a => a.id === appointmentId);
+                
+                document.getElementById('appointmentId').value = appointment.id;
+                document.getElementById('appointmentPatient').value = appointment.patientName;
+                document.getElementById('appointmentService').value = appointment.serviceId;
+                document.getElementById('appointmentDoctor').value = appointment.doctorId;
+                document.getElementById('appointmentDate').value = appointment.date;
+                document.getElementById('appointmentTime').value = appointment.time;
+                document.getElementById('appointmentStatus').value = appointment.status;
+                
+                // Trigger doctor update based on service
+                updateAssignedDoctor();
+            } else {
+                // Add mode
+                title.textContent = 'Create New Appointment';
+                form.reset();
+                document.getElementById('appointmentId').value = '';
+            }
+            
+            openModal('appointmentModal');
+        }
+        
+        function editAppointment(appointmentId) {
+            openAppointmentModal(appointmentId);
+        }
+        
+        function saveAppointment() {
+            const form = document.getElementById('appointmentForm');
+            const appointmentId = document.getElementById('appointmentId').value;
+            const appointmentData = {
+                patientName: document.getElementById('appointmentPatient').value,
+                serviceId: document.getElementById('appointmentService').value,
+                doctorId: document.getElementById('appointmentDoctor').value,
+                date: document.getElementById('appointmentDate').value,
+                time: document.getElementById('appointmentTime').value,
+                status: document.getElementById('appointmentStatus').value
+            };
+            
+            if (appointmentId) {
+                // Update existing appointment
+                const index = appointments.findIndex(a => a.id === appointmentId);
+                appointments[index] = { ...appointments[index], ...appointmentData };
+            } else {
+                // Add new appointment
+                const newId = 'APT' + String(appointments.length + 1).padStart(3, '0');
+                appointments.push({ id: newId, ...appointmentData });
+            }
+            
+            saveData();
+            renderAllTables();
+            closeModal('appointmentModal');
+            alert('Appointment saved successfully!');
+        }
+        
+        function deleteAppointment(appointmentId) {
+            if (confirm(`Are you sure you want to delete appointment ${appointmentId}?`)) {
+                appointments = appointments.filter(a => a.id !== appointmentId);
+                saveData();
+                renderAllTables();
+                alert(`Appointment ${appointmentId} deleted successfully.`);
+            }
+        }
+        
+        function updateAssignedDoctor() {
+            const serviceSelect = document.getElementById('appointmentService');
+            const doctorSelect = document.getElementById('appointmentDoctor');
+            const serviceId = serviceSelect.value;
+            
+            if (serviceId) {
+                const service = services.find(s => s.id === serviceId);
+                if (service && service.doctorId) {
+                    doctorSelect.value = service.doctorId;
+                }
+            }
+        }
+        
+        // Booking functions
+        function renderBookingOptions() {
+            const container = document.getElementById('bookingOptions');
+            container.innerHTML = '';
+            
+            services.forEach(service => {
+                if (service.status === 'Active') {
+                    const doctor = doctors.find(d => d.id === service.doctorId);
+                    const doctorName = doctor ? doctor.name : 'Not assigned';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'booking-card';
+                    card.onclick = () => showBookingForm(service.id);
+                    card.innerHTML = `
+                        <h4>${service.name}</h4>
+                        <p>${service.availability}</p>
+                        <p><strong>Doctor:</strong> ${doctorName}</p>
+                    `;
+                    container.appendChild(card);
+                }
+            });
+        }
+        
+        function showBookingForm(serviceId) {
+            const form = document.getElementById('bookingForm');
+            const title = document.getElementById('bookingServiceTitle');
+            const service = services.find(s => s.id === serviceId);
+            
+            if (service) {
+                title.textContent = `Book ${service.name} Appointment`;
+                form.dataset.serviceId = serviceId;
+                form.classList.add('active');
+                form.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function hideBookingForm() {
+            document.getElementById('bookingForm').classList.remove('active');
+        }
+        
+        function bookAppointment() {
+            const form = document.getElementById('patientBookingForm');
+            const serviceId = form.dataset.serviceId;
+            const service = services.find(s => s.id === serviceId);
+            
+            if (!service) {
+                alert('Service not found!');
+                return;
+            }
+            
+            const appointmentData = {
+                patientName: document.getElementById('patientName').value,
+                serviceId: serviceId,
+                doctorId: service.doctorId || '',
+                date: document.getElementById('bookingDate').value,
+                time: document.getElementById('bookingTime').value,
+                status: 'Pending'
+            };
+            
+            const newId = 'APT' + String(appointments.length + 1).padStart(3, '0');
+            appointments.push({ id: newId, ...appointmentData });
+            
+            saveData();
+            renderAllTables();
+            hideBookingForm();
+            form.reset();
+            alert('Appointment booked successfully!');
+        }
