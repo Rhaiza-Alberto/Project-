@@ -81,13 +81,13 @@ list-style: none;
   color: white;
   background-color: rgba(255,255,255,0.15);
 }
-
-        
         .btn-accent {
             background-color: var(--hospital-accent);
             color: var(--hospital-primary);
             border: none;
             font-weight: 600;
+            margin: 10px;
+            margin-top: 5px;
         }
         
         .btn-accent:hover {

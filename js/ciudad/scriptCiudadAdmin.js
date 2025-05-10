@@ -51,7 +51,7 @@ let services = [
 let doctors = [
     {
         id: "D001",
-        name: "Dr. Sarah Johnson",
+        name: "Dr. Maria Santos",
         specialty: "Neurology",
         department: "Neurology",
         schedule: "Mon-Wed-Fri, 9AM-4PM",
@@ -60,7 +60,7 @@ let doctors = [
     },
     {
         id: "D002",
-        name: "Dr. Michael Chen",
+        name: "Dr. James Lim",
         specialty: "Pediatrics",
         department: "Pediatrics",
         schedule: "Mon-Sat, 8AM-6PM",
