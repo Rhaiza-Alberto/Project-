@@ -3,234 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciudad Medical Zamboanga | Admin Dashboard</title>
+    <title>Ciudad Medical De Zamboanga | Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/ciudad/stylesCiudadAdmin.css">
 </head>
-<body>
-    <header class="hospital-header" style="background-color: var(--hospital-primary);">
+    <header class="hospital-header">
         <div class="container">
             <div class="header-wrapper">
                 <a href="../../index.html" class="logo">
                     <div class="logo-icon">
                         <div class="logo-inner">
-                            <span style="color: var(--hospital-accent)">C</span>
-                            <span style="color: white">M</span>
+                            <span style="color: var(--hospital-primary)">C</span>
+                            <span style="color: var(--hospital-primary)">M</span>
                         </div>
                     </div>
-                    <span class="logo-text">Ciudad Medical Zamboanga</span>
+                    <span class="logo-text">Ciudad Medical De Zamboanga</span>
                     <span class="logo-text-admin">ADMIN</span>
                 </a>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="#services" class="nav-button">Services</a></li>
-                        <li><a href="#doctors" class="nav-button">Doctors</a></li>
-                        <li><a href="#location" class="nav-button">Location</a></li>
-                        <li><a href="#contact" class="nav-button">Contact</a></li>
+                        <li><a href="#" onclick="showSection('services')" class="nav-button">Services</a></li>
+                        <li><a href="#" onclick="showSection('doctors')"  class="nav-button">Doctors</a></li>
+                        <li><a href="#" onclick="showSection('appointments')" class="nav-button">Appointments</a></li>
+                        <li><a href="https://www.google.com/maps?rlz=1C1VDKB_enPH1144PH1144&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEINTYxNmowajGoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&geocode=KWNsSbT0QVAyMerHhLzcQ1aZ&daddr=Veterans+Ave+Ext.,+Extension,+Zamboanga,+7000+Zamboanga+del+Sur" class="nav-button"" class="nav-button">Location</a></li>
+                        <li><a href="https://www.facebook.com/rhaiza.alberto.5" class="nav-button">Contact</a></li>
                     </ul>
                 </nav>
-                <a href="#schedule" class="btn btn-accent">Schedule Visit</a>
-                <a href="../ciudad/ciudad-dashboard.html" class="btn btn-accent">Hospital Dashboard</a>
+                <a href="#" onclick="showSection('schedule')" class="btn btn-accent">Schedule Visit</a>
+                <a href="../../pages/ciudad/ciudad-dashboard.html" class="btn btn-accent">Hospital Dashboard</a>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <section class="hospital-hero" style="background-image: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), url('../../assets/images/ciudad/ciudad-banner.jpg');">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Ciudad Medical Zamboanga</h1>
+    <div class="container my-5">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="services" onclick="showSection('services')">Services</button>
+            <button class="tab-btn" data-tab="doctors" onclick="showSection('doctors')">Doctors</button>
+            <button class="tab-btn" data-tab="appointments" onclick="showSection('appointments')">Appointments</button>
+        </div>
+
+        <!-- Services Tab -->
+        <div id="services" class="tab-content active">
+            <div class="edit-table-container">
+                <div class="table-header">
+                    <h2>Hospital Services Management</h2>
+                    <button class="add-btn" id="addServiceBtn">+ Add New Service</button>
+                </div>
+                <table class="edit-table" id="servicesTable">
+                    <thead>
+                        <tr>
+                            <th>Service ID</th>
+                            <th>Service Name</th>
+                            <th>Department</th>
+                            <th>Assigned Doctor</th>
+                            <th>Availability</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="servicesTableBody">
+                        <!-- Services will be populated by JavaScript -->
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </section>  
-
-    <div class="container">
-        <div class="tab-buttons">
-            <button class="tab-button active" onclick="openTab('services-tab')">Manage Services</button>
-            <button class="tab-button" onclick="openTab('doctors-tab')">Manage Doctors</button>
-        </div>
-        
-        <div id="services-tab" class="admin-tab active">
-            <section id="services" class="hospital-services">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Our Specialized Services</h2>
-                        <p class="section-subtitle">Manage medical services</p>
+            
+            <!-- Service Information Section -->
+            <div class="service-info-container" id="serviceInfoContainer" style="display: none;">
+                <div class="service-info-header">
+                    <h2 id="serviceInfoTitle">Service Details</h2>
+                    <button class="edit-btn" id="editServiceInfoBtn">Edit Service Info</button>
+                </div>
+                <div class="service-info-content">
+                    <div class="service-info-main">
+                        <div class="service-info-image">
+                            <img id="serviceInfoImage" src="" alt="Service Image">
+                        </div>
+                        <div class="service-info-details">
+                            <h3>About This Service</h3>
+                            <p id="serviceInfoDescription">No description available.</p>
+                        </div>
+                        <div class="service-info-details">
+                            <h3>Service Details</h3>
+                            <p><strong>Department:</strong> <span id="serviceInfoDept">Not specified</span></p>
+                            <p><strong>Availability:</strong> <span id="serviceInfoAvailability">Not specified</span></p>
+                            <p><strong>Assigned Doctor:</strong> <span id="serviceInfoDoctor">Not assigned</span></p>
+                            <p><strong>Price Range:</strong> <span id="serviceInfoPrice">Not specified</span></p>
+                            <p><strong>Duration:</strong> <span id="serviceInfoDuration">Not specified</span></p>
+                        </div>
                     </div>
-
-                    <div class="service-cards" id="services-container">
-                    </div>
-
-                    <div class="admin-controls">
-                        <button class="btn btn-accent" onclick="openAddServiceModal()">Add New Service</button>
+                    <div class="service-info-sidebar">
+                        <div class="service-info-details">
+                            <h3>Quick Facts</h3>
+                            <p><strong>Status:</strong> <span id="serviceInfoStatus" class="status-active">Active</span></p>
+                            <p><strong>Last Updated:</strong> <span id="serviceInfoUpdated">Never</span></p>
+                            <p><strong>Appointments:</strong> <span id="serviceInfoAppointments">0</span></p>
+                        </div>
+                        <div class="service-info-details">
+                            <h3>Requirements</h3>
+                            <ul id="serviceInfoRequirements">
+                                <!-- Requirements will be populated by JavaScript -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-        
-        <div id="doctors-tab" class="admin-tab">
-            <section id="doctors" class="doctors-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Our Medical Specialists</h2>
-                        <p class="section-subtitle">Manage medical staff</p>
-                    </div>
-                    
-                    <div class="doctor-grid" id="doctors-container">
-                    </div>
 
-                    <div class="admin-controls">
-                        <button class="btn btn-accent" onclick="openAddDoctorModal()">Add New Doctor</button>
-                    </div>
+        <!-- Doctors Tab -->
+        <div id="doctors" class="tab-content">
+            <div class="edit-table-container">
+                <div class="table-header">
+                    <h2>Doctors Management</h2>
+                    <button class="add-btn" id="addDoctorBtn">+ Add New Doctor</button>
                 </div>
-            </section>
+                <table class="edit-table" id="doctorsTable">
+                    <thead>
+                        <tr>
+                            <th>Doctor ID</th>
+                            <th>Name</th>
+                            <th>Specialty</th>
+                            <th>Department</th>
+                            <th>Assigned Services</th>
+                            <th>Schedule</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="doctorsTableBody">
+                        <!-- Doctors will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Appointments Tab -->
+        <div id="appointments" class="tab-content">
+            <div class="edit-table-container">
+                <div class="table-header">
+                    <h2>Appointments Management</h2>
+                    <button class="add-btn" id="addAppointmentBtn">+ Create Appointment</button>
+                </div>
+                <table class="edit-table" id="appointmentsTable">
+                    <thead>
+                        <tr>
+                            <th>Appointment ID</th>
+                            <th>Patient Name</th>
+                            <th>Service</th>
+                            <th>Doctor</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsTableBody">
+                        <!-- Appointments will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <div id="addServiceModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Add New Service</h3>
-                <button class="close-modal" onclick="closeModal('addServiceModal')">&times;</button>
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal('serviceModal')">&times;</button>
+            <h3 class="modal-title" id="serviceModalTitle">Edit Service</h3>
+            <form id="serviceForm">
+                <input type="hidden" id="serviceId">
+                <div class="form-group">
+                    <label for="serviceName">Service Name</label>
+                    <input type="text" id="serviceName" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription">Description</label>
+                    <textarea id="serviceDescription" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceImage">Image URL</label>
+                    <input type="text" id="serviceImage">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDepartment">Department</label>
+                    <select id="serviceDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Laboratory Services">Laboratory Services</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Orthopedics">Orthopedics</option>    
+                        <option value="Oncology">Oncology</option>
+                        <option value="Gastroenterology">Gastroenterology</option>
+                        <option value="Pulmonology">Pulmonology</option>
+                        <option value="Radiology">Radiology</option>
+                        <option value="Nephrology">Nephrology</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDoctor">Assigned Doctor</label>
+                    <select id="serviceDoctor" required>
+                        <option value="">Select Doctor</option>
+                        <!-- Doctors will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceAvailability">Availability</label>
+                    <input type="text" id="serviceAvailability" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicePrice">Price Range</label>
+                    <input type="text" id="servicePrice">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDuration">Duration</label>
+                    <input type="text" id="serviceDuration" placeholder="e.g., 30 minutes">
+                </div>
+                <div class="form-group">
+                    <label for="serviceRequirements">Requirements (comma separated)</label>
+                    <input type="text" id="serviceRequirements" placeholder="e.g., Insurance card, Medical history">
+                </div>
+                <div class="form-group">
+                    <label for="serviceStatus">Status</label>
+                    <select id="serviceStatus" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" onclick="closeModal('serviceModal')">Cancel</button>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Doctor Modal -->
+    <div class="modal-overlay" id="doctorModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal('doctorModal')">&times;</button>
+            <h3 class="modal-title" id="doctorModalTitle">Edit Doctor</h3>
+            <form id="doctorForm">
+                <input type="hidden" id="doctorId">
+                <div class="form-group">
+                    <label for="doctorName">Doctor Name</label>
+                    <input type="text" id="doctorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorSpecialty">Specialty</label>
+                    <input type="text" id="doctorSpecialty" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorDepartment">Department</label>
+                    <select id="doctorDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Oncology">Oncology</option>
+                        <option value="Gastroenterology">Gastroenterology</option>
+                        <option value="Pulmonology">Pulmonology</option>
+                        <option value="Radiology">Radiology</option>
+                        <option value="Nephrology">Nephrology</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="doctorSchedule">Schedule</label>
+                    <input type="text" id="doctorSchedule" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorStatus">Status</label>
+                    <select id="doctorStatus" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" onclick="closeModal('doctorModal')">Cancel</button>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Appointment Modal -->
+    <div class="modal-overlay" id="appointmentModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal('appointmentModal')">&times;</button>
+            <h3 class="modal-title" id="appointmentModalTitle">Edit Appointment</h3>
+            <form id="appointmentForm">
+                <input type="hidden" id="appointmentId">
+                <div class="form-group">
+                    <label for="appointmentPatient">Patient Name</label>
+                    <input type="text" id="appointmentPatient" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentService">Service</label>
+                    <select id="appointmentService" required onchange="updateAssignedDoctor()">
+                        <option value="">Select Service</option>
+                        <!-- Services will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDoctor">Assigned Doctor</label>
+                    <select id="appointmentDoctor" required>
+                        <option value="">Select Doctor</option>
+                        <!-- Doctors will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Time</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentStatus">Status</label>
+                    <select id="appointmentStatus" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" onclick="closeModal('appointmentModal')">Cancel</button>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Doctor Assignment Modal -->
+    <div class="modal-overlay" id="assignDoctorModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal('assignDoctorModal')">&times;</button>
+            <h3 class="modal-title">Assign Doctor to Service</h3>
+            <div class="form-group">
+                <label for="doctorAssignmentSelect">Select Doctor</label>
+                <select id="doctorAssignmentSelect" class="form-control">
+                    <option value="">Select Doctor</option>
+                    <!-- Doctors will be populated by JavaScript -->
+                </select>
             </div>
-            <div class="modal-body">
-                <form id="addServiceForm" class="service-form">
-                    <label for="service-name">Service Name:</label>
-                    <input type="text" id="service-name" required>
-                    
-                    <label for="service-icon">Icon (emoji):</label>
-                    <input type="text" id="service-icon" required>
-                    
-                    <label for="service-details">Service Details (one per line):</label>
-                    <textarea id="service-details" class="service-details-input" required></textarea>
-                    
-                    <button type="submit" class="submit-btn">Add Service</button>
-                </form>
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn" onclick="closeModal('assignDoctorModal')">Cancel</button>
+                <button type="button" class="save-btn" onclick="saveDoctorAssignment()">Assign</button>
             </div>
         </div>
     </div>
 
-    <div id="editServiceModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Edit Service</h3>
-                <button class="close-modal" onclick="closeModal('editServiceModal')">&times;</button>
+    <!-- Online Booking Section -->
+    <div class="container my-5" id="schedule">
+        <div class="booking-section">
+            <h2>Online Service Booking</h2>
+            <div class="booking-options" id="bookingOptions">
+                <!-- Booking cards will be populated by JavaScript -->
             </div>
-            <div class="modal-body">
-                <form id="editServiceForm" class="service-form">
-                    <input type="hidden" id="edit-service-id">
-                    <label for="edit-service-name">Service Name:</label>
-                    <input type="text" id="edit-service-name" required>
-                    
-                    <label for="edit-service-icon">Icon (emoji):</label>
-                    <input type="text" id="edit-service-icon" required>
-                    
-                    <label for="edit-service-details">Service Details (one per line):</label>
-                    <textarea id="edit-service-details" class="service-details-input" required></textarea>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" onclick="closeModal('editServiceModal')">Cancel</button>
-                        <button type="submit" class="submit-btn">Save Changes</button>
+            
+            <div class="booking-form" id="bookingForm">
+                <h3 id="bookingServiceTitle">Book Appointment</h3>
+                <form id="patientBookingForm">
+                    <div class="form-group">
+                        <label for="patientName">Full Name</label>
+                        <input type="text" id="patientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientEmail">Email</label>
+                        <input type="email" id="patientEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientPhone">Phone Number</label>
+                        <input type="tel" id="patientPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingDate">Preferred Date</label>
+                        <input type="date" id="bookingDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime">Preferred Time</label>
+                        <input type="time" id="bookingTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientNotes">Additional Notes</label>
+                        <textarea id="patientNotes" rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" onclick="hideBookingForm()">Cancel</button>
+                        <button type="submit" class="save-btn">Book Appointment</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <div id="deleteServiceModal" class="modal confirmation-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Confirm Deletion</h3>
-                <button class="close-modal" onclick="closeModal('deleteServiceModal')">&times;</button>
+    <!-- Design Editor Panel -->
+    <div class="design-editor">
+        <div class="design-editor-header">
+            <h4>Design Editor</h4>
+            <button class="design-editor-toggle" onclick="toggleDesignEditor()">Toggle</button>
+        </div>
+        <div class="design-editor-content" id="designEditorContent">
+            <div class="design-option">
+                <label for="primaryColor">Primary Color</label>
+                <div class="color-picker">
+                    <input type="color" id="primaryColor" value="#005b96" onchange="updateDesign()">
+                    <div class="color-picker-preview" style="background-color: var(--hospital-primary);"></div>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this service? This action cannot be undone.</p>
+            <div class="design-option">
+                <label for="accentColor">Accent Color</label>
+                <div class="color-picker">
+                    <input type="color" id="accentColor" value="#b3cde0" onchange="updateDesign()">
+                    <div class="color-picker-preview" style="background-color: var(--hospital-accent);"></div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline" onclick="closeModal('deleteServiceModal')">Cancel</button>
-                <button type="button" class="submit-btn" id="confirm-service-delete">Delete Service</button>
+            <div class="design-option">
+                <label for="secondaryColor">Secondary Color</label>
+                <div class="color-picker">
+                    <input type="color" id="secondaryColor" value="#6497b1" onchange="updateDesign()">
+                    <div class="color-picker-preview" style="background-color: var(--hospital-secondary);"></div>
+                </div>
             </div>
+            <div class="design-option">
+                <label for="borderRadius">Border Radius</label>
+                <input type="range" id="borderRadius" min="0" max="20" value="8" oninput="updateDesign()">
+            </div>
+            <div class="design-option">
+                <label for="fontFamily">Font Family</label>
+                <select id="fontFamily" onchange="updateDesign()">
+                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Helvetica Neue', sans-serif">Helvetica</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                </select>
+            </div>
+            <button class="save-btn" onclick="saveDesignPreferences()">Save Design</button>
+            <button class="cancel-btn" onclick="resetDesign()">Reset to Default</button>
         </div>
     </div>
 
-    <div id="addDoctorModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Add New Doctor</h3>
-                <button class="close-modal" onclick="closeModal('addDoctorModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="addDoctorForm" class="service-form">
-                    <label for="doctor-name">Doctor's Name:</label>
-                    <input type="text" id="doctor-name" required>
-                    
-                    <label for="doctor-specialty">Specialty:</label>
-                    <input type="text" id="doctor-specialty" required>
-                    
-                    <label for="doctor-bio">Biography:</label>
-                    <input type="text" id="doctor-bio" required>
-                    
-                    <label for="doctor-image">Image URL:</label>
-                    <input type="text" id="doctor-image" required>
-                    
-                    <button type="submit" class="submit-btn">Add Doctor</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="editDoctorModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Edit Doctor</h3>
-                <button class="close-modal" onclick="closeModal('editDoctorModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="editDoctorForm" class="service-form">
-                    <input type="hidden" id="edit-doctor-id">
-                    <label for="edit-doctor-name">Doctor's Name:</label>
-                    <input type="text" id="edit-doctor-name" required>
-                    
-                    <label for="edit-doctor-specialty">Specialty:</label>
-                    <input type="text" id="edit-doctor-specialty" required>
-                    
-                    <label for="edit-doctor-bio">Biography:</label>
-                    <input type="text" id="edit-doctor-bio" required>
-                    
-                    <label for="edit-doctor-image">Image URL:</label>
-                    <input type="text" id="edit-doctor-image" required>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" onclick="closeModal('editDoctorModal')">Cancel</button>
-                        <button type="submit" class="submit-btn">Save Changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="deleteDoctorModal" class="modal confirmation-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Confirm Deletion</h3>
-                <button class="close-modal" onclick="closeModal('deleteDoctorModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this doctor? This action cannot be undone.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline" onclick="closeModal('deleteDoctorModal')">Cancel</button>
-                <button type="button" class="submit-btn" id="confirm-doctor-delete">Delete Doctor</button>
-            </div>
-        </div>
-    </div>
-
-    <section class="hospital-cta">
-        <div class="container">
-            <h2>Ready to schedule your visit?</h2>
-            <a href="#schedule" class="btn btn-accent btn-large">Book Appointment Now</a>
-        </div>
-    </section>
-
-    <script src="../../js/ciudad/scriptCiudadAdmin.js"></script>
-
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src ="../../js/ciudad/scriptCiudadAdmin.js"></script>
 </html>

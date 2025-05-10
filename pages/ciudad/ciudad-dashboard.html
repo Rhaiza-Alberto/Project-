@@ -39,6 +39,7 @@
       <a href="#" onclick="showSection('patients')" class="active">Patients</a>
       <a href="#" onclick="showSection('appointments')">Appointments</a>
       <a href="#" onclick="showSection('records')">Medical Records</a>
+      <a href="#" onclick="showSection('services')">Service Schedule</a>
     </div>
 
     <div class="content">
@@ -140,6 +141,53 @@
           </tbody>
         </table>
       </div>
+      <div id="services" class="section" style="display:none">
+  <h3>Service Schedule</h3>
+  <div class="service-filters">
+    <select id="serviceFilter">
+      <option value="">All Services</option>
+      <option value="Consultation">Consultation</option>
+      <option value="Lab Test">Lab Test</option>
+      <option value="X-Ray">X-Ray</option>
+      <option value="Vaccination">Vaccination</option>
+      <option value="Physical Therapy">Physical Therapy</option>
+    </select>
+    <button id="addServiceBtn" class="btn">+ Add New Service</button>
+  </div>
+  <table id="servicesTable" class="display responsive nowrap">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Assigned Doctor</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Consultation</td>
+        <td>Floraly Bernardo</td>
+        <td>2025-05-10</td>
+        <td>09:00 AM</td>
+        <td>Dr. Duran</td>
+        <td>Scheduled</td>
+        <td><button>Edit</button> <button>Book</button></td>
+      </tr>
+      <tr>
+        <td>Lab Test</td>
+        <td>Rhaiza Alberto</td>
+        <td>2025-05-11</td>
+        <td>10:30 AM</td>
+        <td>Dr. Marcelino (Lab)</td>
+        <td>Pending</td>
+        <td><button>Edit</button> <button>Book</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
     </div>
   </div>
 

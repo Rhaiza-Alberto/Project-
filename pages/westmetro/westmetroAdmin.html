@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Westmetro Admin Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Metro Medical Center | Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/westmetro/stylesWMAdmin.css">
+    <style>
 
-  <!-- ✅ DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
-
-  <!-- ✅ Synced Dashboard CSS -->
-  <link rel="stylesheet" href="../../css/westmetro/stylesWMAdmin.css" />
-  <!-- ✅ Back Button Style -->
-  <style>
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 8px 16px;
-      background-color: var(--hospital-accent);
-      color: rgb(187, 55, 55);
-      border-radius: 6px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: color-mix(in srgb, var(--hospital-accent), black 10%);
-    }
-  </style>
+    </style>
 </head>
 <body>
     <header class="hospital-header">
@@ -46,11 +27,11 @@
                 </a>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="#services" data-tab="appointments" onclick="showSection('services')"class="nav-button">Services</a></li>
-                        <li><a href="#doctors" data-tab="doctors" onclick="showSection('doctors')"class="nav-button">Doctors</a></li>
-                        <li><a href="#appointments" data-tab="appointments" onclick="showSection('appointments')" class="nav-button">Appointments</a></li>
-                        <li><a href="#location" class="nav-button">Location</a></li>
-                        <li><a href="#contact" class="nav-button">Contact</a></li>
+                        <li><a href="#" onclick="showSection('services')" class="nav-button">Services</a></li>
+                        <li><a href="#" onclick="showSection('doctors')" class="nav-button">Doctors</a></li>
+                        <li><a href="#" onclick="showSection('appointments')" class="nav-button">Appointments</a></li>
+                        <li><a href="https://www.google.com/maps?rlz=1C1VDKB_enPH1144PH1144&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEINTYxNmowajGoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&geocode=KWNsSbT0QVAyMerHhLzcQ1aZ&daddr=Veterans+Ave+Ext.,+Extension,+Zamboanga,+7000+Zamboanga+del+Sur" class="nav-button">Location</a></li>
+                        <li><a href="https://www.facebook.com/rhaiza.alberto.5" class="nav-button">Contact</a></li>
                     </ul>
                 </nav>
                 <a href="#schedule" class="btn btn-accent">Schedule Visit</a>
@@ -95,6 +76,47 @@
                     </tbody>
                 </table>
             </div>
+            
+            <!-- Service Information Section -->
+            <div class="service-info-container" id="serviceInfoContainer" style="display: none;">
+                <div class="service-info-header">
+                    <h2 id="serviceInfoTitle">Service Details</h2>
+                    <button class="edit-btn" id="editServiceInfoBtn">Edit Service Info</button>
+                </div>
+                <div class="service-info-content">
+                    <div class="service-info-main">
+                        <div class="service-info-image">
+                            <img id="serviceInfoImage" src="" alt="Service Image">
+                        </div>
+                        <div class="service-info-details">
+                            <h3>About This Service</h3>
+                            <p id="serviceInfoDescription">No description available.</p>
+                        </div>
+                        <div class="service-info-details">
+                            <h3>Service Details</h3>
+                            <p><strong>Department:</strong> <span id="serviceInfoDept">Not specified</span></p>
+                            <p><strong>Availability:</strong> <span id="serviceInfoAvailability">Not specified</span></p>
+                            <p><strong>Assigned Doctor:</strong> <span id="serviceInfoDoctor">Not assigned</span></p>
+                            <p><strong>Price Range:</strong> <span id="serviceInfoPrice">Not specified</span></p>
+                            <p><strong>Duration:</strong> <span id="serviceInfoDuration">Not specified</span></p>
+                        </div>
+                    </div>
+                    <div class="service-info-sidebar">
+                        <div class="service-info-details">
+                            <h3>Quick Facts</h3>
+                            <p><strong>Status:</strong> <span id="serviceInfoStatus" class="status-active">Active</span></p>
+                            <p><strong>Last Updated:</strong> <span id="serviceInfoUpdated">Never</span></p>
+                            <p><strong>Appointments:</strong> <span id="serviceInfoAppointments">0</span></p>
+                        </div>
+                        <div class="service-info-details">
+                            <h3>Requirements</h3>
+                            <ul id="serviceInfoRequirements">
+                                <!-- Requirements will be populated by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Doctors Tab -->
@@ -111,6 +133,7 @@
                             <th>Name</th>
                             <th>Specialty</th>
                             <th>Department</th>
+                            <th>Assigned Services</th>
                             <th>Schedule</th>
                             <th>Status</th>
                             <th>Actions</th>
@@ -162,6 +185,14 @@
                     <input type="text" id="serviceName" required>
                 </div>
                 <div class="form-group">
+                    <label for="serviceDescription">Description</label>
+                    <textarea id="serviceDescription" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceImage">Image URL</label>
+                    <input type="text" id="serviceImage">
+                </div>
+                <div class="form-group">
                     <label for="serviceDepartment">Department</label>
                     <select id="serviceDepartment" required>
                         <option value="">Select Department</option>
@@ -187,6 +218,18 @@
                 <div class="form-group">
                     <label for="serviceAvailability">Availability</label>
                     <input type="text" id="serviceAvailability" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicePrice">Price Range</label>
+                    <input type="text" id="servicePrice">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDuration">Duration</label>
+                    <input type="text" id="serviceDuration" placeholder="e.g., 30 minutes">
+                </div>
+                <div class="form-group">
+                    <label for="serviceRequirements">Requirements (comma separated)</label>
+                    <input type="text" id="serviceRequirements" placeholder="e.g., Insurance card, Medical history">
                 </div>
                 <div class="form-group">
                     <label for="serviceStatus">Status</label>
@@ -366,8 +409,55 @@
         </div>
     </div>
 
+    <!-- Design Editor Panel -->
+    <div class="design-editor">
+        <div class="design-editor-header">
+            <h4>Design Editor</h4>
+            <button class="design-editor-toggle" onclick="toggleDesignEditor()">Toggle</button>
+        </div>
+        <div class="design-editor-content" id="designEditorContent">
+            <div class="design-option">
+                <label for="primaryColor">Primary Color</label>
+                <div class="color-picker">
+                    <input type="color" id="primaryColor" value="#005b96" onchange="updateDesign()">
+                    <div class="color-picker-preview" style="background-color: var(--hospital-primary);"></div>
+                </div>
+            </div>
+            <div class="design-option">
+                <label for="accentColor">Accent Color</label>
+                <div class="color-picker">
+                    <input type="color" id="accentColor" value="#b3cde0" onchange="updateDesign()">
+                    <div class="color-picker-preview" style="background-color: var(--hospital-accent);"></div>
+                </div>
+            </div>
+            <div class="design-option">
+                <label for="secondaryColor">Secondary Color</label>
+                <div class="color-picker">
+                    <input type="color" id="secondaryColor" value="#6497b1" onchange="updateDesign()">
+                    <div class="color-picker-preview" style="background-color: var(--hospital-secondary);"></div>
+                </div>
+            </div>
+            <div class="design-option">
+                <label for="borderRadius">Border Radius</label>
+                <input type="range" id="borderRadius" min="0" max="20" value="8" oninput="updateDesign()">
+            </div>
+            <div class="design-option">
+                <label for="fontFamily">Font Family</label>
+                <select id="fontFamily" onchange="updateDesign()">
+                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Helvetica Neue', sans-serif">Helvetica</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                </select>
+            </div>
+            <button class="save-btn" onclick="saveDesignPreferences()">Save Design</button>
+            <button class="cancel-btn" onclick="resetDesign()">Reset to Default</button>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/westmetro/scriptWMAdmin.js"></script>
-    </body>
-    </html>
+    <script src ="../../js/westmetro/scriptWMAdmin.js"></script>
+</body>
+</html>

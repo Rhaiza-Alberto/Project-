@@ -3,15 +3,22 @@
 --hospital-accent: #b3cde0;
 --hospital-secondary: #6497b1;
         }        
-        body {
+    body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background-color: #f5f5f5;       
 }
-        
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .hospital-header {
-background-color: var(--hospital-primary);
-color: white;
-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--hospital-primary);
 }
 .logo {
 display: flex;
@@ -322,7 +329,7 @@ list-style: none;
             margin-top: 20px;
             padding: 20px;
             background-color: #f8f9fa;
-            border-radius: 5px;
+            border-radius: var(--border-radius);
         }
         
         .booking-form.active {
@@ -338,9 +345,9 @@ list-style: none;
         
         .booking-card {
             background-color: white;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: var(--box-shadow);
             cursor: pointer;
             transition: transform 0.2s;
         }
@@ -381,6 +388,131 @@ list-style: none;
             transition: all 0.3s ease;
         }
         
+        /* Service Info Styles */
+        .service-info-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .service-info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-info-content {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .service-info-main {
+            flex: 2;
+        }
+        
+        .service-info-sidebar {
+            flex: 1;
+        }
+        
+        .service-info-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .service-info-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .service-info-details {
+            margin-bottom: 20px;
+        }
+        
+        .service-info-details h3 {
+            color: var(--hospital-primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-info-details p {
+            margin-bottom: 10px;
+        }
+        
+        .service-info-details strong {
+            color: #333;
+        }
+        
+        /* Design Editor Styles */
+        .design-editor {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 15px;
+            z-index: 1000;
+            width: 300px;
+        }
+        
+        .design-editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .design-editor-toggle {
+            background-color: var(--hospital-primary);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .design-editor-content {
+            display: none;
+        }
+        
+        .design-editor-content.active {
+            display: block;
+        }
+        
+        .design-option {
+            margin-bottom: 15px;
+        }
+        
+        .design-option label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .color-picker {
+            display: flex;
+            align-items: center;
+        }
+        
+        .color-picker input {
+            flex: 1;
+            margin-right: 10px;
+        }
+        
+        .color-picker-preview {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
         @media (max-width: 992px) {
             .main-nav {
                 display: none;
@@ -411,5 +543,9 @@ list-style: none;
             
             .btn-accent {
                 margin: 5px 0;
+            }
+            
+            .service-info-content {
+                flex-direction: column;
             }
         }
